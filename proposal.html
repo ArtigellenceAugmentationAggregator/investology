@@ -1,0 +1,1049 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Investology × AAA · Invest Smarter, Own Better · A Working Prototype for Usha</title>
+<meta name="description" content="A tailored engagement for Usha Borah / Investology — Phase 0 refundable pilot, the Psychology of Investing engine, tailored at every meeting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF3E0; --bg-2:#F5EAC8; --bg-3:#EDDFB0;
+  --card:#FFFFFF; --card-2:#FBF6E8;
+  --line:#DFD2AC; --line-soft:#E8DEBF;
+  --forest:#2D5A3D; --forest-2:#1F4230; --forest-3:#173226; --forest-light:#4A7C5A; --forest-soft:rgba(45,90,61,.08); --forest-glow:rgba(45,90,61,.25);
+  --rose:#B76E79; --rose-bright:#D18894; --rose-deep:#7A4048; --rose-soft:rgba(183,110,121,.12);
+  --gold:#B8863C; --gold-deep:#7A5720; --gold-soft:rgba(184,134,60,.12);
+  --ink:#1F1B14; --body:#5A5045; --mute:#8B7E6E; --mute-soft:#B4A896;
+  --disp:'Playfair Display',Georgia,serif;
+  --sans:'Inter',-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--rose);text-decoration:none;font-weight:500}
+a:hover{color:var(--rose-deep)}
+img{max-width:100%;display:block}
+::selection{background:var(--forest);color:#FAF3E0}
+
+/* editorial rules · thin gold lines */
+.rule{height:1px;background:var(--gold);opacity:.4}
+.rule.thick{height:2px;opacity:.6}
+.rule.rose{background:var(--rose);opacity:.5}
+
+/* ambient organic shapes · echoing property + nature */
+.shape{position:fixed;pointer-events:none;z-index:0;border-radius:50%;filter:blur(3px)}
+.shape.a{top:-120px;right:-100px;width:420px;height:420px;background:radial-gradient(circle,var(--forest) 0%,transparent 65%);opacity:.06}
+.shape.b{top:280px;left:-80px;width:260px;height:260px;background:radial-gradient(circle,var(--rose) 0%,transparent 70%);opacity:.05}
+.shape.c{bottom:-100px;right:80px;width:340px;height:340px;background:radial-gradient(circle,var(--gold) 0%,transparent 70%);opacity:.06}
+
+/* ticker */
+.top-strip{background:var(--forest-3);border-bottom:1px solid var(--forest-2);height:36px;display:flex;align-items:center;overflow:hidden;position:relative;z-index:10}
+.top-label{padding:0 18px;font-family:var(--mono);font-size:9.5px;letter-spacing:1.8px;color:var(--rose-bright);text-transform:uppercase;font-weight:700;border-right:1px solid var(--forest-2);height:100%;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.top-window{flex:1;overflow:hidden;position:relative;display:flex;align-items:center}
+.top-track{display:inline-block;white-space:nowrap;animation:ticker 100s linear infinite;font-family:var(--mono);font-size:11px;color:#DFD2AC;padding-left:100%;font-weight:400}
+.top-track .n{display:inline-block;margin-right:44px}
+.top-track .src{color:var(--rose-bright);font-weight:700;margin-right:8px;letter-spacing:1px}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+
+/* header */
+header{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(8px)}
+.header-inner{max-width:1200px;margin:0 auto;padding:20px 24px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-mark{width:52px;height:52px;background:linear-gradient(135deg,var(--forest),var(--forest-2));border-radius:6px;display:flex;align-items:center;justify-content:center;color:#FAF3E0;box-shadow:0 6px 18px var(--forest-glow);border:1px solid var(--forest-light);position:relative;overflow:hidden}
+.brand-mark::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--rose)}
+.brand-mark svg{width:28px;height:32px}
+.brand-txt{display:flex;flex-direction:column;line-height:1.15;gap:3px}
+.brand-txt .n{font-family:var(--disp);font-size:22px;font-weight:600;color:var(--ink);letter-spacing:-.4px}
+.brand-txt .n em{color:var(--rose);font-style:italic;font-weight:500;margin:0 3px}
+.brand-txt .sub{font-family:var(--mono);font-size:9.5px;letter-spacing:1.3px;color:var(--mute);text-transform:uppercase;font-weight:500}
+.for-tag{font-family:var(--mono);font-size:10px;letter-spacing:1.3px;color:var(--rose-deep);text-transform:uppercase;padding:8px 14px;background:var(--rose-soft);border:1px solid var(--rose);border-radius:20px;font-weight:600}
+.stamp{font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:.5px;text-align:right;font-weight:500}
+.stamp b{color:var(--forest);font-weight:700}
+.stamp .g{color:var(--rose-deep)}
+
+/* tabs */
+.tabs{max-width:1200px;margin:0 auto;padding:20px 24px 0;display:flex;gap:2px;border-bottom:1px solid var(--line);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:14px 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--mute);cursor:pointer;background:none;border:none;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;font-weight:600}
+.tab:hover{color:var(--forest)}
+.tab.active{color:var(--forest);border-bottom-color:var(--forest);background:linear-gradient(180deg,transparent 60%,var(--forest-soft))}
+.tab .n{color:var(--rose);margin-right:8px;font-weight:500}
+
+/* main */
+main{max-width:1200px;margin:0 auto;padding:52px 24px 80px;min-height:80vh;position:relative;z-index:1}
+.panel{display:none;animation:fadein .35s ease}
+.panel.active{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:2.2px;color:var(--rose-deep);text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.eyebrow .dot{color:var(--forest);margin:0 6px}
+.h1{font-family:var(--disp);font-weight:500;font-size:clamp(34px,5.4vw,60px);line-height:1.05;letter-spacing:-1.2px;color:var(--ink);margin-bottom:22px}
+.h1 em{font-style:italic;color:var(--rose);font-weight:500}
+.h1 .under{color:var(--forest);border-bottom:2px solid var(--rose);padding-bottom:2px}
+.h1 .grad{background:linear-gradient(90deg,var(--forest),var(--rose));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:600}
+.lead{font-size:17px;line-height:1.7;color:var(--body);max-width:820px;margin-bottom:36px}
+.lead strong{color:var(--ink);font-weight:600}
+.lead em{color:var(--forest);font-style:italic;font-weight:500}
+.h2{font-family:var(--disp);font-weight:500;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.6px;line-height:1.1;color:var(--ink);margin:44px 0 18px}
+.h2 em{font-style:italic;color:var(--rose);font-weight:500}
+.h3{font-family:var(--disp);font-weight:600;font-size:22px;color:var(--ink);margin:32px 0 12px;letter-spacing:-.3px}
+.p{font-size:15px;line-height:1.7;color:var(--body);margin-bottom:16px;max-width:820px}
+.p strong{color:var(--ink);font-weight:600}
+.p em{color:var(--forest);font-style:italic;font-weight:500}
+
+/* cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:26px 24px;position:relative;overflow:hidden;transition:all .25s;box-shadow:0 2px 8px rgba(31,27,20,.03)}
+.card.forest{border-color:var(--forest-light);background:linear-gradient(180deg,rgba(45,90,61,.06),var(--card))}
+.card.rose{border-color:var(--rose);background:linear-gradient(180deg,rgba(183,110,121,.06),var(--card))}
+.card.gold{border-color:var(--gold);background:linear-gradient(180deg,rgba(184,134,60,.06),var(--card))}
+.card:hover{border-color:var(--forest);transform:translateY(-2px);box-shadow:0 8px 24px rgba(31,27,20,.08)}
+.card-tag{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--forest);text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.card-tag.r{color:var(--rose-deep)}
+.card-tag.g{color:var(--gold-deep)}
+.card-title{font-family:var(--disp);font-size:22px;font-weight:600;color:var(--ink);letter-spacing:-.3px;line-height:1.15;margin-bottom:10px}
+.card-title em{font-style:italic;color:var(--rose);font-weight:500}
+.card-body{font-size:14px;color:var(--body);line-height:1.65}
+.card-body strong,.card-body b{color:var(--ink);font-weight:600}
+.card-body em{color:var(--forest);font-style:italic;font-weight:500}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0}
+@media(max-width:900px){.grid-3,.grid-4,.grid-2{grid-template-columns:1fr}}
+
+/* stat tiles */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px 16px;text-align:center;position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--forest)}
+.stat.rose::before{background:var(--rose)}
+.stat.gold::before{background:var(--gold)}
+.stat .big{font-family:var(--disp);font-size:44px;font-weight:600;color:var(--forest);letter-spacing:-1px;line-height:1;margin-bottom:8px;font-style:italic}
+.stat.rose .big{color:var(--rose-deep)}
+.stat.gold .big{color:var(--gold-deep)}
+.stat .lbl{font-family:var(--mono);font-size:9.5px;color:var(--body);letter-spacing:.7px;line-height:1.4;text-transform:uppercase;font-weight:600}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* said quote */
+.said{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--rose);border-radius:0 6px 6px 0;padding:20px 24px;margin:16px 0}
+.said .q{font-family:var(--disp);font-style:italic;font-size:20px;color:var(--ink);line-height:1.4;margin-bottom:10px;font-weight:500}
+.said .q::before{content:'"';color:var(--rose);font-size:40px;line-height:0;margin-right:2px;vertical-align:-15px;font-family:var(--disp);font-style:italic}
+.said .q::after{content:'"';color:var(--rose);font-size:40px;line-height:0;margin-left:2px;vertical-align:-15px;font-family:var(--disp);font-style:italic}
+.said .from{font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:1.4px;text-transform:uppercase;font-weight:500}
+.said .from b{color:var(--rose-deep);font-weight:700}
+.said.big .q{font-size:24px}
+.means{background:var(--card);border:1px solid var(--forest-light);border-radius:6px;padding:20px 24px;margin:8px 0 24px;font-size:15px;color:var(--body);line-height:1.7}
+.means b.k{color:var(--forest);font-family:var(--mono);font-size:10px;letter-spacing:1.4px;text-transform:uppercase;display:block;margin-bottom:8px;font-weight:700}
+.means em{color:var(--forest);font-style:italic;font-weight:500}
+.means strong{color:var(--ink);font-weight:600}
+
+/* bullet lists */
+ul.list{list-style:none;padding:0;margin:14px 0}
+ul.list li{position:relative;padding-left:24px;margin-bottom:12px;color:var(--body);font-size:15px;line-height:1.65}
+ul.list li::before{content:'❦';position:absolute;left:0;top:0;color:var(--rose);font-size:12px;font-weight:500}
+ul.list li b{color:var(--ink);font-weight:600}
+ul.list li em{color:var(--forest);font-style:italic;font-weight:500}
+ul.list.forest li::before{content:'▹';color:var(--forest)}
+
+/* timeline */
+.timeline{border-left:2px solid var(--line);margin:32px 0 32px 12px;padding-left:32px;position:relative}
+.tl-item{margin-bottom:36px;position:relative}
+.tl-item::before{content:'';position:absolute;width:16px;height:16px;background:var(--bg);border:2px solid var(--forest);border-radius:50%;left:-41px;top:5px;box-shadow:0 0 0 4px var(--bg)}
+.tl-item.done::before{background:var(--forest)}
+.tl-item.hero::before{border-color:var(--rose);background:var(--rose);box-shadow:0 0 0 4px var(--bg),0 0 16px var(--rose-soft)}
+.tl-tag{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--forest);text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.tl-item.hero .tl-tag{color:var(--rose-deep)}
+.tl-h{font-family:var(--disp);font-size:24px;font-weight:600;color:var(--ink);letter-spacing:-.4px;margin-bottom:8px;line-height:1.15}
+.tl-h em{font-style:italic;font-weight:500;color:var(--rose)}
+.tl-p{font-size:14px;color:var(--body);line-height:1.7;max-width:760px}
+.tl-p b{color:var(--ink);font-weight:600}
+.tl-p em{color:var(--forest);font-style:italic;font-weight:500}
+
+/* mapping table */
+.maptbl{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;background:var(--card);border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.maptbl th,.maptbl td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.maptbl th{font-family:var(--mono);font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--forest);font-weight:700;background:var(--card-2)}
+.maptbl td.ask{color:var(--ink);font-weight:500;width:34%}
+.maptbl td.aaa{color:var(--forest);font-family:var(--mono);font-size:13px;width:33%}
+.maptbl td.custom{color:var(--rose-deep);font-family:var(--mono);font-size:13px;width:33%}
+.maptbl tr.hero td{background:linear-gradient(180deg,rgba(45,90,61,.08),transparent);border-top:2px solid var(--forest);border-bottom:2px solid var(--forest)}
+.maptbl tr.hero td.ask{color:var(--forest);font-family:var(--disp);font-style:italic;font-weight:600;font-size:16px}
+
+/* mock dashboard */
+.dash{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--forest-light);border-radius:8px;padding:0;margin:24px 0;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(31,27,20,.08)}
+.dash-head{padding:16px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--card-2)}
+.dash-head .lt{display:flex;align-items:center;gap:14px}
+.dash-head .dot{width:8px;height:8px;border-radius:50%;background:var(--forest);box-shadow:0 0 8px var(--forest-glow)}
+.dash-head .t{font-family:var(--disp);font-size:17px;color:var(--ink);letter-spacing:-.3px;font-weight:600}
+.dash-head .rt{font-family:var(--mono);font-size:9.5px;color:var(--mute);letter-spacing:1px;text-transform:uppercase}
+.dash-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1px;background:var(--line)}
+@media(max-width:800px){.dash-grid{grid-template-columns:1fr}}
+.dash-cell{padding:18px 20px;background:var(--card)}
+.dash-cell .k{font-family:var(--mono);font-size:9px;letter-spacing:1.4px;color:var(--mute);text-transform:uppercase;font-weight:600;margin-bottom:6px}
+.dash-cell .v{font-family:var(--disp);font-size:32px;color:var(--forest);letter-spacing:-.5px;line-height:1;margin-bottom:6px;font-weight:600}
+.dash-cell .v.r{color:var(--rose-deep)}
+.dash-cell .v.o{color:var(--ink)}
+.dash-cell .sub{font-size:11px;color:var(--body);line-height:1.4}
+.dash-cell .sub b{color:var(--ink)}
+.dash-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line-soft);font-size:12px;color:var(--body)}
+.dash-row:last-child{border:none}
+.dash-row .l{color:var(--ink);font-weight:500}
+.dash-row .r{color:var(--forest);font-family:var(--mono);font-weight:600}
+.dash-row .r.h{color:var(--rose-deep)}
+
+/* math table */
+.mtbl{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;background:var(--card);border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.mtbl th,.mtbl td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.mtbl th{font-family:var(--mono);font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--forest);font-weight:700;background:var(--card-2)}
+.mtbl td.row-lbl{color:var(--ink);font-weight:500}
+.mtbl td.now{color:var(--rose-deep);font-family:var(--mono);font-weight:600}
+.mtbl td.aaa{color:var(--forest);font-family:var(--mono);font-weight:600}
+.mtbl tr.total td{background:linear-gradient(180deg,rgba(45,90,61,.08),transparent);font-size:15px;padding:18px 18px;border-top:2px solid var(--forest);border-bottom:2px solid var(--forest)}
+.mtbl tr.total td.row-lbl{color:var(--ink);font-family:var(--disp);letter-spacing:-.3px;font-size:17px;font-weight:600}
+.mtbl tr.total td.aaa{color:var(--forest);font-size:16px;font-weight:700}
+.mtbl tr.phase0 td{background:rgba(183,110,121,.08)}
+.mtbl tr.phase0 td.aaa{color:var(--rose-deep);font-weight:700}
+.mtbl tr.save td{background:rgba(45,90,61,.12);color:var(--forest);font-weight:600}
+.mtbl tr.save td.row-lbl{color:var(--forest)}
+
+/* investment hero */
+.invest-hero{background:linear-gradient(135deg,var(--forest),var(--forest-2));color:#FAF3E0;padding:32px 32px;border-radius:8px;margin:28px 0 12px;position:relative;overflow:hidden;border:1px solid var(--rose);box-shadow:0 12px 40px var(--forest-glow)}
+.invest-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(183,110,121,.30),transparent 70%);border-radius:50%}
+.invest-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold))}
+.invest-hero .k{font-family:var(--mono);font-size:10.5px;letter-spacing:1.8px;color:var(--rose-bright);text-transform:uppercase;font-weight:700;margin-bottom:8px;position:relative}
+.invest-hero .num{font-family:var(--disp);font-size:64px;font-weight:500;font-style:italic;letter-spacing:-2px;line-height:.95;margin:8px 0 12px;position:relative;color:var(--bg)}
+.invest-hero .num small{font-family:var(--mono);font-size:14px;font-weight:500;opacity:.85;letter-spacing:.3px;color:#DFD2AC;display:inline-block;margin-left:8px;font-style:normal}
+.invest-hero .msg{font-size:15px;line-height:1.65;position:relative;max-width:720px;color:#EDDFB0}
+.invest-hero .msg b{color:var(--rose-bright);font-weight:700}
+
+/* ROI calc */
+.calc{background:linear-gradient(135deg,var(--forest),var(--rose-deep));color:#FAF3E0;border-radius:8px;padding:32px 30px;margin:32px 0;position:relative;overflow:hidden;box-shadow:0 12px 40px var(--forest-glow)}
+.calc::before{content:'';position:absolute;top:-80px;right:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(183,110,121,.30),transparent 70%);pointer-events:none;border-radius:50%}
+.calc-h{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--rose-bright);text-transform:uppercase;font-weight:700;margin-bottom:8px;position:relative}
+.calc-t{font-family:var(--disp);font-size:30px;font-weight:500;color:#FAF3E0;margin-bottom:24px;position:relative;letter-spacing:-.6px;line-height:1.1}
+.calc-t em{font-style:italic;color:var(--rose-bright);font-weight:500}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;position:relative}
+@media(max-width:700px){.calc-grid{grid-template-columns:1fr}}
+.calc-in{margin-bottom:22px}
+.calc-in:last-child{margin-bottom:0}
+.calc-in label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:1.4px;color:rgba(250,243,224,.72);text-transform:uppercase;font-weight:600;margin-bottom:10px}
+.calc-in input[type=range]{width:100%;accent-color:var(--rose-bright)}
+.calc-in .val{font-family:var(--disp);font-size:28px;color:var(--rose-bright);font-weight:600;font-style:italic;margin-top:6px;display:inline-block;margin-right:10px;letter-spacing:-.6px}
+.calc-in .val-sub{font-family:var(--mono);font-size:10.5px;color:rgba(250,243,224,.65);letter-spacing:.5px;font-weight:500}
+.calc-out{background:rgba(0,0,0,.20);border:1px solid rgba(183,110,121,.30);border-radius:6px;padding:22px 24px;backdrop-filter:blur(8px)}
+.calc-out .out-r{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(183,110,121,.15);font-size:13px}
+.calc-out .out-r:last-child{border-bottom:none}
+.calc-out .out-r .k{color:rgba(250,243,224,.82);font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:500}
+.calc-out .out-r .v{color:#FAF3E0;font-family:var(--mono);font-weight:600;font-size:14px}
+.calc-out .out-r.hero{padding-top:14px;border-top:1px solid rgba(183,110,121,.45);margin-top:8px}
+.calc-out .out-r.hero .k{color:var(--rose-bright);font-weight:700}
+.calc-out .out-r.hero .v{color:var(--rose-bright);font-size:22px;font-family:var(--disp);font-style:italic;letter-spacing:-.5px}
+
+/* buttons */
+.pillbtn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;background:var(--forest);color:#FAF3E0;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border-radius:4px;text-decoration:none;border:none;cursor:pointer;transition:all .2s;box-shadow:0 6px 18px var(--forest-glow)}
+.pillbtn:hover{background:var(--forest-2);transform:translateY(-2px);box-shadow:0 10px 26px var(--forest-glow);color:#FAF3E0}
+.pillbtn.ghost{background:transparent;color:var(--forest);border:1.5px solid var(--forest);box-shadow:none}
+.pillbtn.ghost:hover{background:var(--forest-soft);color:var(--forest-2)}
+.pillbtn.rose{background:var(--rose);color:#FAF3E0;box-shadow:0 6px 18px rgba(183,110,121,.35)}
+.pillbtn.rose:hover{background:var(--rose-deep);color:#FAF3E0}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+
+/* pills */
+.deliv{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.pill{font-family:var(--mono);font-size:10px;letter-spacing:.9px;padding:5px 10px;background:var(--card-2);color:var(--forest);border:1px solid var(--forest-light);border-radius:3px;font-weight:600;text-transform:uppercase}
+.pill.r{color:var(--rose-deep);border-color:var(--rose);background:rgba(183,110,121,.06)}
+.pill.g{color:var(--gold-deep);border-color:var(--gold);background:rgba(184,134,60,.06)}
+
+/* warn */
+.warn-card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--forest);border-radius:0 6px 6px 0;padding:22px 26px;margin:16px 0;box-shadow:0 2px 6px rgba(31,27,20,.04)}
+.warn-card.r{border-left-color:var(--rose)}
+.warn-card.g{border-left-color:var(--gold)}
+.warn-card h4{font-family:var(--disp);font-size:20px;color:var(--ink);margin-bottom:10px;font-weight:600;letter-spacing:-.3px}
+.warn-card h4::before{content:'❦ ';color:var(--forest);margin-right:4px}
+.warn-card.r h4::before{color:var(--rose)}
+.warn-card.g h4::before{color:var(--gold-deep)}
+.warn-card p{font-size:14px;color:var(--body);line-height:1.7}
+.warn-card p b{color:var(--ink);font-weight:600}
+.warn-card p em{color:var(--forest);font-style:italic;font-weight:500}
+
+/* footer */
+footer{border-top:1px solid var(--line);background:var(--card-2);padding:44px 24px 28px;margin-top:60px;position:relative;z-index:2}
+.foot-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.foot-brand{display:flex;flex-direction:column;gap:6px}
+.foot-brand .l{font-family:var(--disp);color:var(--forest);font-size:20px;letter-spacing:-.4px;font-weight:600}
+.foot-brand .l em{color:var(--rose);font-style:italic;margin:0 4px}
+.foot-brand .s{font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:1px;text-transform:uppercase;font-weight:500}
+.foot-links{display:flex;gap:22px;font-family:var(--mono);font-size:11px;color:var(--body);letter-spacing:.4px;flex-wrap:wrap;font-weight:500}
+.foot-links a{color:var(--body);font-weight:500}
+.foot-links a:hover{color:var(--rose)}
+.foot-legal{font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:.4px;max-width:1200px;margin:24px auto 0;text-align:center;line-height:1.7;border-top:1px solid var(--line);padding-top:20px;font-weight:400}
+
+/* ==== DARK MODE · forest night ==== */
+html.dark{background-color:#0F1815;color:#E8DFC8}
+html.dark body{background-color:#0F1815;color:#E8DFC8}
+html.dark header{background:#0F1815;border-bottom-color:#243027}
+html.dark main{color:#E8DFC8}
+html.dark .h1,html.dark .h2,html.dark .h3,html.dark .card-title,html.dark .tl-h,html.dark .warn-card h4,html.dark .brand-txt .n,html.dark .dash-head .t{color:#F0E7CE}
+html.dark .lead,html.dark .p,html.dark .card-body,html.dark ul.list li,html.dark .tl-p,html.dark .warn-card p,html.dark .dash-cell .sub{color:#C4BDA5}
+html.dark .stamp,html.dark .brand-txt .sub,html.dark .stat .lbl,html.dark .said .from,html.dark .card-tag,html.dark .dash-head .rt,html.dark .dash-cell .k{color:#8B8471}
+html.dark .card{background:#18211C;border-color:#28352C;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+html.dark .card:hover{border-color:#5A8168;box-shadow:0 8px 22px rgba(0,0,0,.45)}
+html.dark .card.forest{background:linear-gradient(180deg,rgba(74,124,90,.12),#18211C);border-color:#4A7C5A}
+html.dark .card.rose{background:linear-gradient(180deg,rgba(209,136,148,.10),#18211C);border-color:var(--rose)}
+html.dark .card.gold{background:linear-gradient(180deg,rgba(184,134,60,.10),#18211C);border-color:var(--gold)}
+html.dark .stat{background:#18211C;border-color:#28352C}
+html.dark .stat .big{color:#7CBA8E}
+html.dark .stat.rose .big{color:var(--rose-bright)}
+html.dark .stat.gold .big{color:#D5A868}
+html.dark .said{background:#18211C;border-color:#28352C;border-left-color:var(--rose)}
+html.dark .said .q{color:#F0E7CE}
+html.dark .said .from b{color:var(--rose-bright)}
+html.dark .means{background:#18211C;border-color:#4A7C5A;color:#C4BDA5}
+html.dark .means b.k{color:#7CBA8E}
+html.dark .means em{color:#7CBA8E}
+html.dark .means strong{color:#F0E7CE}
+html.dark .maptbl,html.dark .mtbl{background:#18211C;border-color:#28352C}
+html.dark .maptbl th,html.dark .mtbl th{background:#22302A;color:#7CBA8E;border-bottom-color:#28352C}
+html.dark .maptbl td,html.dark .mtbl td{border-bottom-color:#22302A;color:#C4BDA5}
+html.dark .maptbl td.ask,html.dark .mtbl td.row-lbl{color:#F0E7CE}
+html.dark .maptbl td.aaa,html.dark .mtbl td.aaa{color:#7CBA8E}
+html.dark .maptbl td.custom{color:var(--rose-bright)}
+html.dark .maptbl tr.hero td{background:linear-gradient(180deg,rgba(74,124,90,.18),transparent);border-top-color:#7CBA8E;border-bottom-color:#7CBA8E}
+html.dark .maptbl tr.hero td.ask{color:#7CBA8E}
+html.dark .mtbl tr.total td{background:linear-gradient(180deg,rgba(74,124,90,.15),transparent);border-top-color:#7CBA8E;border-bottom-color:#7CBA8E}
+html.dark .mtbl tr.total td.row-lbl{color:#F0E7CE}
+html.dark .mtbl tr.total td.aaa{color:#7CBA8E}
+html.dark .mtbl tr.phase0 td{background:rgba(209,136,148,.10)}
+html.dark .mtbl tr.phase0 td.aaa{color:var(--rose-bright)}
+html.dark .mtbl tr.save td{background:rgba(74,124,90,.18);color:#7CBA8E}
+html.dark .warn-card{background:#18211C;border-color:#28352C;border-left-color:#7CBA8E}
+html.dark .warn-card.r{border-left-color:var(--rose)}
+html.dark .warn-card.g{border-left-color:var(--gold)}
+html.dark .pillbtn{background:#7CBA8E;color:#0F1815}
+html.dark .pillbtn:hover{background:#96D0A5;color:#0F1815}
+html.dark .pillbtn.ghost{background:transparent;color:#7CBA8E;border-color:#7CBA8E}
+html.dark .pillbtn.ghost:hover{background:rgba(124,186,142,.10)}
+html.dark .pillbtn.rose{background:var(--rose);color:#0F1815}
+html.dark .pill{background:#22302A;color:#7CBA8E;border-color:#4A7C5A}
+html.dark .pill.r{color:var(--rose-bright);border-color:var(--rose);background:rgba(209,136,148,.10)}
+html.dark .pill.g{color:#D5A868;border-color:var(--gold);background:rgba(213,168,104,.10)}
+html.dark .for-tag{background:rgba(209,136,148,.15);border-color:var(--rose);color:var(--rose-bright)}
+html.dark .tl-item::before{background:#0F1815;border-color:#7CBA8E}
+html.dark .tl-item.done::before{background:#7CBA8E}
+html.dark .tl-item.hero::before{border-color:var(--rose-bright);background:var(--rose-bright);box-shadow:0 0 0 4px #0F1815,0 0 16px rgba(209,136,148,.5)}
+html.dark .tl-tag{color:#7CBA8E}
+html.dark .tl-item.hero .tl-tag{color:var(--rose-bright)}
+html.dark .timeline{border-left-color:#28352C}
+html.dark .eyebrow{color:var(--rose-bright)}
+html.dark .card-tag{color:#7CBA8E}
+html.dark .card-tag.r{color:var(--rose-bright)}
+html.dark .card-tag.g{color:#D5A868}
+html.dark .dash{background:linear-gradient(180deg,#18211C,#22302A);border-color:#4A7C5A}
+html.dark .dash-head{background:#22302A;border-bottom-color:#28352C}
+html.dark .dash-grid{background:#28352C}
+html.dark .dash-cell{background:#18211C}
+html.dark .dash-cell .v{color:#7CBA8E}
+html.dark .dash-cell .v.r{color:var(--rose-bright)}
+html.dark .dash-cell .v.o{color:#F0E7CE}
+html.dark .dash-row .l{color:#F0E7CE}
+html.dark .dash-row .r{color:#7CBA8E}
+html.dark .dash-row .r.h{color:var(--rose-bright)}
+html.dark .dash-row{border-bottom-color:#22302A}
+html.dark .invest-hero{background:linear-gradient(135deg,#0A1610,#1F4230)}
+html.dark .calc{background:linear-gradient(135deg,#0A1610,#4A2028)}
+html.dark .top-strip{background:#050908;border-bottom-color:#22302A}
+html.dark .tab{color:#8B8471}
+html.dark .tab:hover{color:#F0E7CE}
+html.dark .tab.active{color:#7CBA8E;border-bottom-color:#7CBA8E;background:linear-gradient(180deg,transparent 60%,rgba(74,124,90,.10))}
+html.dark .brand-mark{background:linear-gradient(135deg,#4A7C5A,#2D5A3D);border-color:#7CBA8E}
+html.dark .stamp b{color:#7CBA8E}
+html.dark .stamp .g{color:var(--rose-bright)}
+html.dark footer{background:#050908;border-top-color:var(--rose)}
+html.dark .foot-brand .l{color:#7CBA8E}
+html.dark .foot-brand .l em{color:var(--rose-bright)}
+html.dark .foot-brand .s,html.dark .foot-links,html.dark .foot-links a,html.dark .foot-legal{color:#8B8471}
+html.dark .foot-links a:hover{color:var(--rose-bright)}
+html.dark .rule{background:#7CBA8E;opacity:.3}
+html.dark .rule.rose{background:var(--rose-bright);opacity:.4}
+html.dark .shape.a{opacity:.10}
+html.dark .shape.b{opacity:.08}
+html.dark .shape.c{opacity:.08}
+html.dark ul.list li::before{color:var(--rose-bright)}
+html.dark ul.list.forest li::before{color:#7CBA8E}
+
+/* theme toggle */
+.theme-tog{position:fixed;top:14px;right:20px;z-index:200;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--forest);color:#FAF3E0;font-family:var(--mono);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;border:1px solid var(--forest-light);border-radius:20px;cursor:pointer;box-shadow:0 6px 18px var(--forest-glow);transition:transform .2s}
+.theme-tog:hover{transform:translateY(-1px)}
+html.dark .theme-tog{background:var(--rose);color:#0F1815;border-color:var(--rose-bright)}
+@media(max-width:900px){.theme-tog{top:auto;bottom:14px;right:14px}}
+</style>
+</head>
+<body>
+<div style="background:#173226;font-family:'JetBrains Mono',ui-monospace,monospace;position:relative;z-index:500;border-bottom:1px solid #1F4230">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:flex;gap:2px;align-items:center;overflow-x:auto">
+    <a href="index.html" style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#C9B98E;font-weight:600;padding:11px 13px;white-space:nowrap;text-decoration:none">&#10086; Home</a>
+    <a href="proposal.html" style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#fff;font-weight:600;padding:11px 13px;white-space:nowrap;text-decoration:none;border-bottom:2px solid #B76E79">The Full Plan</a>
+    <a href="investology_smsf_deadline.html" style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#C9B98E;font-weight:600;padding:11px 13px;white-space:nowrap;text-decoration:none">10 Aug SMSF</a>
+    <a href="investology_lander_waland.html" style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#C9B98E;font-weight:600;padding:11px 13px;white-space:nowrap;text-decoration:none">WA Land from $275k</a>
+    <a href="https://wa.me/61478502303" target="_blank" rel="noopener" style="margin-left:auto;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#25D366;font-weight:600;padding:11px 13px;white-space:nowrap;text-decoration:none">WhatsApp &#8594;</a>
+  </div>
+</div>
+
+<button class="theme-tog" id="theme-tog" title="Toggle light/dark"><span id="theme-ico">☾</span><span id="theme-lbl">DARK</span></button>
+
+<div class="shape a"></div>
+<div class="shape b"></div>
+<div class="shape c"></div>
+
+<div class="top-strip" aria-hidden="true">
+  <div class="top-label">❦ INVEST SMARTER · OWN BETTER</div>
+  <div class="top-window"><div class="top-track">
+    <span class="n"><span class="src">USHA'S USP</span>"We Understand the Psychology of Investing" — that's a movement, not a tagline.</span>
+    <span class="n"><span class="src">MARKET</span>SMSF property in Australia = A$850B+ · behavioural finance is the untapped angle.</span>
+    <span class="n"><span class="src">TRUTH</span>Property buyers research reviews like their life depends on it — because $500K+ decisions.</span>
+    <span class="n"><span class="src">STATUS</span>investologyhq.online ✓ registered for warmed outbound · Hostinger · Day 1 clock ready.</span>
+    <span class="n"><span class="src">FUTURE</span>"The Psychology of Investing" podcast · Michael Yardney's audience is waiting for the next voice.</span>
+    <span class="n"><span class="src">MOAT</span>Buyers agent + property strategist + female founder + psychology angle = category of one.</span>
+  </div></div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 40 48" fill="#FAF3E0" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- stylised building silhouette -->
+          <rect x="6" y="16" width="12" height="26" fill="#FAF3E0" opacity=".95"/>
+          <rect x="22" y="8" width="12" height="34" fill="#FAF3E0"/>
+          <!-- windows -->
+          <rect x="9" y="20" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="12.75" y="20" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="9" y="25" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="12.75" y="25" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="9" y="30" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="12.75" y="30" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="9" y="35" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="12.75" y="35" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="25" y="12" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="28.75" y="12" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="25" y="17" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="28.75" y="17" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="25" y="22" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="28.75" y="22" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="25" y="27" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="28.75" y="27" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="25" y="32" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <rect x="28.75" y="32" width="2.5" height="2.5" fill="#2D5A3D"/>
+          <!-- ground -->
+          <rect x="4" y="42" width="32" height="2" fill="#B76E79"/>
+        </svg>
+      </div>
+      <div class="brand-txt">
+        <span class="n">Investology <em>×</em> AAA by Artigellence</span>
+        <span class="sub">Invest Smarter, Own Better · Working Prototype · Founder-Direct AI</span>
+      </div>
+    </div>
+    <span class="for-tag">❦ For · Usha Borah</span>
+    <div class="stamp">
+      Version 1 · <b>July 2026</b><br>
+      Cousin domain · <b>investologyhq.online</b> <span class="g">✓</span><br>
+      Confidential · NDA-covered
+    </div>
+  </div>
+  <div class="rule" style="margin-top:16px"></div>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="insight" role="tab"><span class="n">01</span>The Insight</button>
+    <button class="tab" data-tab="phase0" role="tab"><span class="n">02</span>Phase 0</button>
+    <button class="tab" data-tab="engine" role="tab"><span class="n">03</span>Engine &amp; Cadence</button>
+    <button class="tab" data-tab="content" role="tab"><span class="n">04</span>Content &amp; Podcast</button>
+    <button class="tab" data-tab="math" role="tab"><span class="n">05</span>The Math</button>
+    <button class="tab" data-tab="compliance" role="tab"><span class="n">06</span>Compliance</button>
+    <button class="tab" data-tab="yes" role="tab"><span class="n">07</span>Yes → Start</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ==================== 01 · INSIGHT ==================== -->
+<section class="panel active" id="insight">
+  <div class="eyebrow">§ 01 <span class="dot">❦</span> The Insight <span class="dot">❦</span> Your Positioning, Read Back</div>
+  <h1 class="h1">Your USP is a <em>movement</em>.<br>Let's build the <span class="under">engine</span> that spreads it.</h1>
+  <p class="lead">Usha ji — most buyer's advocates in Australia sell track record or discount. Your card says <strong>"Invest Smarter, Own Better."</strong> Your website hero says <strong>"We Understand the Psychology of Investing."</strong> That's not marketing — that's a category-of-one position. Every serious property investor in Sydney knows Michael Yardney, Property Couch, Scott Pape. The seat next to them for "the psychology of investing" — nobody owns it yet. <em>You should.</em> This is the plan.</p>
+
+  <h2 class="h2">What you already have — <em>the moats</em></h2>
+  <div class="said big">
+    <div class="q">We Understand the Psychology of Investing.</div>
+    <div class="from"><b>Investology · investology.com.au</b> · your website hero</div>
+  </div>
+  <div class="said">
+    <div class="q">Invest Smarter, Own Better.</div>
+    <div class="from"><b>Usha Borah</b> · Buyers Agent &amp; Property Strategist · your card</div>
+  </div>
+  <p class="p">Two taglines. Both work. Together they're stronger than the sum: <em>the smarter buyer thinks about psychology first, deal structure second, suburb third.</em> That's the whole thesis. We're building a content engine, a podcast, a lead system and a review moat — all around that one intellectual position.</p>
+
+  <h2 class="h2">Your market · <em>what the numbers say</em></h2>
+  <div class="stats">
+    <div class="stat"><div class="big">$850B</div><div class="lbl">SMSF property market in Australia · your niche</div></div>
+    <div class="stat rose"><div class="big">1 in 5</div><div class="lbl">Aussie investors use a buyers agent · 4 in 5 don't yet</div></div>
+    <div class="stat gold"><div class="big">$8–25K</div><div class="lbl">Typical buyers agent engagement fee · your unit economics</div></div>
+    <div class="stat"><div class="big">30–90d</div><div class="lbl">Trust cycle from first touch to signed engagement</div></div>
+  </div>
+
+  <div class="means">
+    <b class="k">❦ The Diagnosis</b>
+    Buyers advocacy is <em>trust-heavy, review-driven, content-slow</em>. Your USP already differentiates you intellectually — what's missing is <strong>the distribution machinery to spread it</strong>. Google reviews compounding into every post, weekly essays on behavioural biases in property, the <em>Psychology of Investing</em> podcast with the audience Michael Yardney and Scott Pape trained for you, warmed outbound to accountants and SMSF advisers who send referral gold, a voice agent that catches the serious investor who calls at 9pm having just seen your carousel on Instagram. It's not that you're doing anything wrong — it's that nobody has built the compounding engine <em>around your specific positioning</em> yet.
+  </div>
+
+  <h2 class="h2">The <em>six moats</em> we build on</h2>
+  <div class="grid-3">
+    <div class="card rose">
+      <div class="card-tag r">Moat 01 · Voice</div>
+      <div class="card-title">Voice Agent · <em>24/7</em></div>
+      <div class="card-body">Every after-hours call to 0478 502 303 answered. Property enquiry captured, budget + timeline + SMSF-or-personal qualified, discovery call booked. <b>No serious investor slips.</b></div>
+    </div>
+    <div class="card rose">
+      <div class="card-tag r">Moat 02 · Speed</div>
+      <div class="card-title">60-Second Response</div>
+      <div class="card-body">Every form fill on investology.com.au → SMS + email inside 60 seconds. Property leads cool fast — <b>first-touch inside 5 min converts 9× higher.</b></div>
+    </div>
+    <div class="card forest">
+      <div class="card-tag">Moat 03 · Findable</div>
+      <div class="card-title">Seen by AI &amp; Google</div>
+      <div class="card-body">llms.txt, schema, GBP, FAQ on <em>"buyers agent Sydney"</em>, <em>"SMSF property advisor"</em>, <em>"behavioural finance property"</em>. ChatGPT names Investology.</div>
+    </div>
+    <div class="card forest">
+      <div class="card-tag">Moat 04 · Reviews</div>
+      <div class="card-title">Reviews · <em>compounded</em></div>
+      <div class="card-body">Every Google review harvested → quote card + video overlay + GBP post + newsletter footer. <b>Property investors research reviews harder than any other buyer.</b></div>
+    </div>
+    <div class="card gold">
+      <div class="card-tag g">Moat 05 · Content</div>
+      <div class="card-title">Weekly <em>Psychology</em> Engine</div>
+      <div class="card-body">Anchor essay each week: behavioural biases in property. Cut into LinkedIn, IG carousels, YouTube shorts, newsletter, podcast script. <em>Your intellectual moat, on repeat.</em></div>
+    </div>
+    <div class="card gold">
+      <div class="card-tag g">Moat 06 · Podcast</div>
+      <div class="card-title">"The Psychology of Investing"</div>
+      <div class="card-body">Your tagline becomes the show. Unlocks at 100+ followers on any channel (~Month 4-5). <b>The seat next to Yardney &amp; Pape is empty.</b></div>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <button class="pillbtn" data-goto="phase0">See Phase 0 →</button>
+    <button class="pillbtn ghost" data-goto="math">Skip to The Math</button>
+  </div>
+</section>
+
+<!-- ==================== 02 · PHASE 0 ==================== -->
+<section class="panel" id="phase0">
+  <div class="eyebrow">§ 02 <span class="dot">❦</span> Phase 0 <span class="dot">❦</span> Diagnostic &amp; First Working Result</div>
+  <h1 class="h1">By Day 10, a working <em>Voice Agent</em><br>on your line + your <span class="under">reviews</span> already compounding.</h1>
+  <p class="lead">Phase 0 is <strong>A$4,500 · one-time · at start · 100% refundable up to Day 30</strong>. I shadow the business, deliver a first working result on your real data by Day 10, and you decide between Day 10 and Day 30 whether to continue — or take a full refund. <em>Risk sits on me. Scope stays alive — we tailor whatever's needed at each meeting, as we progress.</em></p>
+
+  <div class="stats">
+    <div class="stat"><div class="big">$4,500</div><div class="lbl">Phase 0 · one-time · at start</div></div>
+    <div class="stat rose"><div class="big">100%</div><div class="lbl">Refundable up to Day 30 · no questions</div></div>
+    <div class="stat"><div class="big">Day 10</div><div class="lbl">Voice Agent LIVE + first content published</div></div>
+    <div class="stat rose"><div class="big">Direct</div><div class="lbl">Founder-direct · every meeting · every phase</div></div>
+  </div>
+
+  <h2 class="h2">The two <em>first working results</em></h2>
+  <div class="grid-2">
+    <div class="card rose">
+      <div class="card-tag r">Hero 01 · No serious call missed</div>
+      <div class="card-title">Voice Agent on 0478 502 303</div>
+      <div class="card-body">
+        AI voice agent live on your business line by <b>Day 10</b>. Handles after-hours and weekend property enquiries. Captures buyer intent, budget band, timeline, SMSF vs personal. Books discovery call into your calendar. Sends transcript to your WhatsApp. Won't recommend properties or quote fees — captures, qualifies, books, hands off. <b>Your Monday morning starts with a booked discovery call list.</b>
+      </div>
+      <div class="deliv"><span class="pill r">Live Day 10</span><span class="pill r">Founder-built</span><span class="pill r">Real-estate license safe</span><span class="pill r">Yours to keep</span></div>
+    </div>
+    <div class="card forest">
+      <div class="card-tag">Hero 02 · Reviews start working</div>
+      <div class="card-title">Reviews harvested + first content live</div>
+      <div class="card-body">
+        Every Google &amp; Facebook review pulled into a repurposable library. First 3 quote cards designed. First anchor essay published in Usha's voice — "The Psychology Bias Costing First-Time Property Investors $50K." <b>By Day 10, your best trust asset is finally working for you.</b>
+      </div>
+      <div class="deliv"><span class="pill">Reviews harvested</span><span class="pill">First essay live</span><span class="pill">GBP posts scheduled</span></div>
+    </div>
+  </div>
+
+  <h2 class="h2">The invisible fortnight — every foundation piece</h2>
+  <div class="timeline">
+    <div class="tl-item done">
+      <div class="tl-tag">Day 1</div>
+      <div class="tl-h">Saturday kickoff · 90 minutes</div>
+      <div class="tl-p">Coffee in Sydney (or your office). Logins together (Google, socials, investology.com.au CMS access). Cousin domain <b>investologyhq.online</b> ✓ already registered (Hostinger). Ideal client sentence locked (my read: 35–55, professional or business owner, first or second investment property, SMSF-curious). Voice capture — 30–40 min of you talking psychology, property, wins. <b>Every piece of content forever runs from this recording.</b></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-tag">Days 1–3</div>
+      <div class="tl-h">Findable Diagnostic delivered</div>
+      <div class="tl-p">Written audit: where Investology lives in ChatGPT / Claude / Perplexity / Google AI today (screenshots baseline). SPF/DKIM/DMARC on investology.com.au. Schema audit. GBP audit. Reviews harvest — every Google + Facebook review pulled. Plain English, decision-ready.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-tag">Days 1–14</div>
+      <div class="tl-h">investologyhq.online warmup begins · <em>the clock that can't be rushed</em></div>
+      <div class="tl-p"><b>investologyhq.online</b> (already registered) is your outbound-only address. Specialist warmup software behaves like a real person for 2–4 weeks so cold email lands in the inbox. Your main <b>info@investology.com.au</b> is never put at risk. This clock started the day the domain was booked.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-tag">Days 3–7</div>
+      <div class="tl-h">Content foundation · first anchor essay drafted</div>
+      <div class="tl-p">First "Psychology of Investing" essay drafted in Usha's voice from the voice recording. Cut into LinkedIn post, Instagram carousel, email newsletter draft, short video script. All approved by Usha before Day 10 publish.</div>
+    </div>
+    <div class="tl-item hero">
+      <div class="tl-tag">Day 10</div>
+      <div class="tl-h">❦ First Working Result</div>
+      <div class="tl-p">Voice Agent live on 0478 502 303. First anchor essay published on investology.com.au + LinkedIn + newsletter. Reviews library ready. GBP posts scheduled for the week. <b>You watch a real serious-investor enquiry come in on Saturday night, get qualified, get booked into your Monday morning calendar. This is the moment.</b></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-tag">Days 10–30</div>
+      <div class="tl-h">Refund window open · your call</div>
+      <div class="tl-p">Between Day 10 and Day 30 you decide: continue into Build &amp; Retainer — or take a full refund of A$4,500. <b>No questions asked.</b> Everything built stays with you either way.</div>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <button class="pillbtn" data-goto="engine">See Engine &amp; Cadence →</button>
+  </div>
+</section>
+
+<!-- ==================== 03 · ENGINE ==================== -->
+<section class="panel" id="engine">
+  <div class="eyebrow">§ 03 <span class="dot">❦</span> Engine &amp; Cadence <span class="dot">❦</span> The Weekly Growth Machine</div>
+  <h1 class="h1">A$2,500 a month.<br>Six agents. <em>One weekly engine.</em></h1>
+  <p class="lead">A tailored retainer for Investology — sized to your ambition and the content-heavy nature of buyer's advocacy. Direct founder access, every meeting. 3-month break clause. You keep the code, the prompts, the credentials, the content, the reviews library, the podcast episodes. <em>We tailor whatever's needed at each meeting, as we progress</em> — the plan flexes to what your business asks for.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="big">$2,500</div><div class="lbl">Monthly retainer · Months 1–6</div></div>
+    <div class="stat rose"><div class="big">6</div><div class="lbl">Agents · rolled out progressively</div></div>
+    <div class="stat"><div class="big">4h/wk</div><div class="lbl">Weekly Growth Engine session · everything shipped</div></div>
+    <div class="stat rose"><div class="big">3 mo</div><div class="lbl">Break clause · walk away, keep what's built</div></div>
+  </div>
+
+  <h2 class="h2">The six agents, in the order they land</h2>
+  <div class="grid-3">
+    <div class="card rose">
+      <div class="card-tag r">Agent 01 · Phase 0 delivered</div>
+      <div class="card-title">Voice Agent</div>
+      <div class="card-body">Kept live, tuned monthly. New scripts for new offers (SMSF campaigns, first-home-investor packages, seasonal buys). <b>Zero missed serious enquiries.</b></div>
+    </div>
+    <div class="card rose">
+      <div class="card-tag r">Agent 02 · Month 1</div>
+      <div class="card-title">60-Second Response Agent</div>
+      <div class="card-body">Every form fill → SMS + email inside 60 seconds. <b>Property leads cool fast</b> — first-touch inside 5 min converts 9× higher. You'll be at 1 minute.</div>
+    </div>
+    <div class="card forest">
+      <div class="card-tag">Agent 03 · Month 2</div>
+      <div class="card-title">Findable Layer</div>
+      <div class="card-body">llms.txt, LocalBusiness schema, FAQ schema on top buyer's-agent questions, weekly GBP posts. AI answers <em>"buyers agent Sydney SMSF"</em> with Usha's name.</div>
+    </div>
+    <div class="card forest">
+      <div class="card-tag">Agent 04 · Month 2</div>
+      <div class="card-title">Attribution Dashboard</div>
+      <div class="card-body">Every post/ad/email/podcast episode UTM-tagged. Live view: <b>lead → source → discovery call → signed engagement → $$</b>. Proves what content actually books calls.</div>
+    </div>
+    <div class="card gold">
+      <div class="card-tag g">Agent 05 · Month 3</div>
+      <div class="card-title">Referral Partner Nurture</div>
+      <div class="card-body">Monthly co-brandable content to accountants, mortgage brokers, SMSF advisers — the people who send Usha the <b>real high-ticket referrals</b>. B2B effort, B2C reach.</div>
+    </div>
+    <div class="card gold">
+      <div class="card-tag g">Agent 06 · Month 3+</div>
+      <div class="card-title">Digital Clone GPT · <em>Usha's voice</em></div>
+      <div class="card-body">Trained on the voice recording + months of your content. Drafts replies, essays, podcast intros, LinkedIn responses in your exact tone. <em>You at scale.</em></div>
+    </div>
+  </div>
+
+  <div class="rule rose" style="margin:44px 0 32px"></div>
+
+  <h2 class="h2">Weekly Growth Engine · <em>the psychology angle rotating</em></h2>
+  <p class="p">One 4-hour session a week. One anchor essay. Nothing written twice. Four rotating formats — every one designed to build authority AND book discovery calls:</p>
+
+  <div class="grid-4">
+    <div class="card">
+      <div class="card-tag g">Anchor 01 · weekly</div>
+      <div class="card-title" style="font-size:20px">Behavioural Bias of the Week</div>
+      <div class="card-body">Anchoring in property valuations · loss aversion in selling · FOMO in Sydney vs regional · sunk-cost in renovations. <b>Rank + share + save.</b></div>
+    </div>
+    <div class="card">
+      <div class="card-tag g">Anchor 02 · weekly</div>
+      <div class="card-title" style="font-size:20px">Case Study of the Week</div>
+      <div class="card-body">Anonymised client win with the psychology angle. What bias almost cost them $80K, how the strategist call flipped it. <b>Sales-native storytelling.</b></div>
+    </div>
+    <div class="card">
+      <div class="card-tag g">Anchor 03 · weekly</div>
+      <div class="card-title" style="font-size:20px">Suburb Watch</div>
+      <div class="card-body">Data + psychology: where Aussies are irrationally buying vs where the fundamentals point. <b>Genuinely useful, ranks for suburb queries.</b></div>
+    </div>
+    <div class="card">
+      <div class="card-tag g">Anchor 04 · weekly</div>
+      <div class="card-title" style="font-size:20px">Ask Investology</div>
+      <div class="card-body">Reader questions answered on video or in newsletter. <b>Best long-tail SEO strategy in the buyer's-agent vertical.</b> Also builds trust fast.</div>
+    </div>
+  </div>
+
+  <h2 class="h2">Every anchor cut into <em>seven touchpoints</em></h2>
+  <ul class="list forest">
+    <li><b>investology.com.au blog</b> — the anchor essay lives here permanently, indexed by Google + AI</li>
+    <li><b>LinkedIn essay + carousel</b> — Usha's primary trust-building channel for high-net-worth investors</li>
+    <li><b>Instagram carousel + reel</b> — where 35–45 y/o property-curious Aussies actually scroll</li>
+    <li><b>YouTube Short + long-form clip</b> — indexed forever, searchable, embeddable in essays</li>
+    <li><b>Monthly newsletter</b> — Beehiiv, the month's best essay + one exclusive insight, sent from investologyhq.online</li>
+    <li><b>Warmed outbound</b> — to referral partners: accountants, mortgage brokers, SMSF advisers</li>
+    <li><b>Google Business Profile</b> — weekly post so Investology's listing compounds for local intent</li>
+  </ul>
+
+  <div class="cta-row">
+    <button class="pillbtn" data-goto="content">See Content &amp; Podcast →</button>
+  </div>
+</section>
+
+<!-- ==================== 04 · CONTENT & PODCAST ==================== -->
+<section class="panel" id="content">
+  <div class="eyebrow">§ 04 <span class="dot">❦</span> Content &amp; Podcast <span class="dot">❦</span> The Category-of-One Play</div>
+  <h1 class="h1">"The Psychology of Investing"<br>is <em>already</em> your tagline. <span class="under">Make it your show.</span></h1>
+  <p class="lead">Michael Yardney has property. Scott Pape has the Barefoot Investor. Property Couch has the podcast for tactical property. <strong>The seat for behavioural finance + property is empty.</strong> Your card and website say the words. All that's missing is the show, the newsletter, and the compounding library. That's Phase 3 onwards — but the groundwork starts Month 1.</p>
+
+  <div class="stats">
+    <div class="stat gold"><div class="big">~24</div><div class="lbl">Anchor essays owned by Month 6 · 4/mo × 6</div></div>
+    <div class="stat gold"><div class="big">~168</div><div class="lbl">Platform posts · every anchor × 7 touchpoints</div></div>
+    <div class="stat rose"><div class="big">100+</div><div class="lbl">Follower gate before podcast launches · discipline</div></div>
+    <div class="stat"><div class="big">12mo</div><div class="lbl">By Month 12, category-of-one authority · realistic</div></div>
+  </div>
+
+  <h2 class="h2">The <em>Psychology of Investing</em> podcast · shape</h2>
+  <div class="grid-2">
+    <div class="card gold">
+      <div class="card-tag g">Format</div>
+      <div class="card-title">30–45 min · weekly · <em>guest + solo alternating</em></div>
+      <div class="card-body">
+        <b>Guest weeks:</b> retired property investors, behavioural economists, buyer's agents from other markets, SMSF specialists, mortgage brokers with war stories.<br><br>
+        <b>Solo weeks:</b> Usha walks through one behavioural bias in property, one case study, one Q&amp;A block. <em>Faceless if she prefers</em> — audio only, video optional.
+      </div>
+    </div>
+    <div class="card gold">
+      <div class="card-tag g">Distribution</div>
+      <div class="card-title">Spotify · Apple · YouTube · Substack</div>
+      <div class="card-body">
+        Uploaded weekly. Each episode auto-transcribed into a blog post + newsletter + 3 LinkedIn quote cards + 1 Instagram carousel + 1 YouTube Short. <b>One 45-min recording = 7+ pieces of derivative content.</b> Compounds every week.
+      </div>
+    </div>
+  </div>
+
+  <h2 class="h2">Why we gate the launch on <em>100+ followers</em></h2>
+  <div class="means">
+    <b class="k">❦ The Discipline</b>
+    Podcasts don't get audiences — <em>audiences get podcasts</em>. Launching before you have people to hear it is a diary, not a show. So we build the LinkedIn following, the Instagram, the newsletter list for the first 3–4 months. When any single channel hits <strong>100+ engaged followers</strong>, the podcast unlocks — and now every episode has a warm launch audience from Day 1. Realistic timeline: <em>Month 4 to Month 5.</em>
+  </div>
+
+  <h2 class="h2">Content pillars · <em>Usha's intellectual arsenal</em></h2>
+  <ul class="list forest">
+    <li><b>Behavioural biases in property</b> — anchoring, loss aversion, herd mentality, endowment effect, sunk-cost fallacy, availability heuristic. <em>10+ biases × 4 seasonal cuts = 40 essays before repeating.</em></li>
+    <li><b>SMSF property strategy</b> — the largest single niche in your addressable market. Educational content ranks fast, converts high-intent.</li>
+    <li><b>First vs second investment property psychology</b> — different mindsets, different mistakes. Two distinct audiences to speak to.</li>
+    <li><b>Buyer's agent vs going alone</b> — the fee question, honestly answered. Removes objection before discovery call.</li>
+    <li><b>Suburb data + investor psychology</b> — where the numbers say vs where the crowd is going. Contrarian-friendly.</li>
+    <li><b>Interviews with clients</b> — video case studies with permission. Trust asset #1 in property.</li>
+  </ul>
+
+  <div class="cta-row">
+    <button class="pillbtn" data-goto="math">See The Math →</button>
+  </div>
+</section>
+
+<!-- ==================== 05 · MATH ==================== -->
+<section class="panel" id="math">
+  <div class="eyebrow">§ 05 <span class="dot">❦</span> The Math <span class="dot">❦</span> No Hidden Fees</div>
+  <h1 class="h1">One number to start.<br>One number a month. <em>That's it.</em></h1>
+  <p class="lead">Two numbers, kept separate: <strong>A$4,500 is your Phase 0 fee — one-time, 100% refundable</strong>. Your <strong>monthly outlay</strong> after that is A$3,000 (A$2,500 retainer + A$500 protective ad spend on your card). Tools (~A$80–100/mo) pass through at cost, no markup. <strong>Six-month all-in: A$22,500.</strong></p>
+
+  <div class="invest-hero">
+    <div class="k">❦ The AAA Investment · 6-month all-in</div>
+    <div class="num">A$22,500 <small>· A$4,500 start + A$2,500/mo × 6 + A$500/mo ads × 6</small></div>
+    <div class="msg"><b>Phase 0 (A$4,500) 100% refundable up to Day 30.</b> Then A$2,500/month retainer for six months + A$500/month protective ad spend (retargeting only, on your card). Tools (~A$80–100/mo) pass through at cost. <b>No markup. No hidden fees.</b></div>
+  </div>
+
+  <h2 class="h2">Why this price · <em>what it would cost separately</em></h2>
+  <p class="p">Every service in this engagement bought on the open market in Sydney, 2026 · same scope, agency-billed:</p>
+  <table class="mtbl">
+    <thead>
+      <tr><th>Service · bought separately</th><th style="text-align:right">Sydney market rate</th><th style="text-align:right">6 months</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="row-lbl">Personal-brand content agency (LinkedIn + IG + blog)</td><td class="now" style="text-align:right">A$3,000–6,000 / mo</td><td class="aaa" style="text-align:right">A$18,000–36,000</td></tr>
+      <tr><td class="row-lbl">SEO / AEO agency (property niche)</td><td class="now" style="text-align:right">A$2,000–4,000 / mo</td><td class="aaa" style="text-align:right">A$12,000–24,000</td></tr>
+      <tr><td class="row-lbl">Podcast production &amp; distribution</td><td class="now" style="text-align:right">A$1,500–3,000 / mo</td><td class="aaa" style="text-align:right">A$9,000–18,000</td></tr>
+      <tr><td class="row-lbl">Voice agent build + hosting</td><td class="now" style="text-align:right">A$3,000 setup + A$300/mo</td><td class="aaa" style="text-align:right">A$4,800+</td></tr>
+      <tr><td class="row-lbl">Reviews / reputation management</td><td class="now" style="text-align:right">A$500–1,500 / mo</td><td class="aaa" style="text-align:right">A$3,000–9,000</td></tr>
+      <tr><td class="row-lbl">Email deliverability + newsletter setup</td><td class="now" style="text-align:right">A$1,000–2,000 one-off</td><td class="aaa" style="text-align:right">A$1,500+</td></tr>
+      <tr class="total"><td class="row-lbl">If bought separately · 6 months</td><td class="now" style="text-align:right">—</td><td class="aaa" style="text-align:right">A$48,300 – A$92,300</td></tr>
+      <tr class="save"><td class="row-lbl">💚 AAA all-in · founder-direct · you own everything</td><td style="text-align:right">—</td><td style="text-align:right">A$22,500</td></tr>
+    </tbody>
+  </table>
+  <p class="p" style="font-size:13px;color:var(--mute);margin-top:8px;font-family:var(--mono)">Sydney/Melbourne agency rates published 2026 · illustrative comparison, not a formal benchmark.</p>
+
+  <h2 class="h2">6-month breakdown · <em>line by line</em></h2>
+  <table class="mtbl">
+    <thead>
+      <tr><th>Line item</th><th style="text-align:right">Amount</th><th style="text-align:right">Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="phase0"><td class="row-lbl">Phase 0 (one-time · refundable)</td><td class="aaa" style="text-align:right">A$4,500</td><td class="now" style="text-align:right">Refundable up to Day 30</td></tr>
+      <tr><td class="row-lbl">Retainer · Month 1</td><td class="aaa" style="text-align:right">A$2,500</td><td class="now" style="text-align:right">60-Second Response + first content live</td></tr>
+      <tr><td class="row-lbl">Retainer · Month 2</td><td class="aaa" style="text-align:right">A$2,500</td><td class="now" style="text-align:right">Findable + Attribution Dashboard live</td></tr>
+      <tr><td class="row-lbl">Retainer · Month 3</td><td class="aaa" style="text-align:right">A$2,500</td><td class="now" style="text-align:right">Referral Nurture + Digital Clone GPT</td></tr>
+      <tr><td class="row-lbl">Retainer · Month 4</td><td class="aaa" style="text-align:right">A$2,500</td><td class="now" style="text-align:right">Podcast may unlock · reasonable results</td></tr>
+      <tr><td class="row-lbl">Retainer · Month 5</td><td class="aaa" style="text-align:right">A$2,500</td><td class="now" style="text-align:right">Full engine compounding</td></tr>
+      <tr><td class="row-lbl">Retainer · Month 6</td><td class="aaa" style="text-align:right">A$2,500</td><td class="now" style="text-align:right">Real results window</td></tr>
+      <tr class="phase0"><td class="row-lbl">Ad spend (retargeting only)</td><td class="aaa" style="text-align:right">A$500 × 6 = A$3,000</td><td class="now" style="text-align:right">Precision retargeting on your card · no markup</td></tr>
+      <tr class="total"><td class="row-lbl">6-Month All-In</td><td class="aaa" style="text-align:right">A$22,500</td><td style="text-align:right;color:var(--mute);font-family:var(--mono);font-size:12px">+ ~$500 tools (at cost)</td></tr>
+      <tr class="save"><td class="row-lbl">💚 What you own at Month 6</td><td style="text-align:right">Everything</td><td style="text-align:right">Content · code · agents · reviews · list · GPT</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="h2">What you own at Month 6</h2>
+  <div class="grid-3">
+    <div class="card rose">
+      <div class="card-tag r">Systems</div>
+      <div class="card-title">6 Agents · live</div>
+      <div class="card-body">Voice · 60-Sec Response · Findable · Attribution · Referral Nurture · Digital Clone GPT. Your code, your credentials.</div>
+    </div>
+    <div class="card forest">
+      <div class="card-tag">Content</div>
+      <div class="card-title">~24 anchor essays</div>
+      <div class="card-body">Each cut across 7 touchpoints. <b>~168 posts + 24 videos + 6 newsletters + 8-10 podcast episodes</b> — indexed, attributable, yours.</div>
+    </div>
+    <div class="card gold">
+      <div class="card-tag g">Authority</div>
+      <div class="card-title">Podcast · reviews · newsletter</div>
+      <div class="card-body">"The Psychology of Investing" launched. Reviews compounding as social proof across every channel. Newsletter list building. <em>Category-of-one authority forming.</em></div>
+    </div>
+  </div>
+
+  <div class="calc">
+    <div class="calc-h">❦ ROI Calculator · Slide it, see it</div>
+    <div class="calc-t">If AAA moves you to your <em>target</em> engagements/month, here's what it earns.</div>
+    <div class="calc-grid">
+      <div>
+        <div class="calc-in">
+          <label>New signed engagements / month (over baseline)</label>
+          <input type="range" id="r-eng" min="1" max="12" value="3" step="1">
+          <span class="val" id="v-eng">3</span><span class="val-sub">new clients / month</span>
+        </div>
+        <div class="calc-in">
+          <label>Average engagement fee</label>
+          <input type="range" id="r-fee" min="5000" max="30000" value="12000" step="500">
+          <span class="val" id="v-fee">A$12,000</span><span class="val-sub">buyer's agent typical A$8–25K</span>
+        </div>
+        <div class="calc-in">
+          <label>Net margin per engagement (%)</label>
+          <input type="range" id="r-marg" min="40" max="90" value="70" step="5">
+          <span class="val" id="v-marg">70%</span><span class="val-sub">buyers agent typical 60–80%</span>
+        </div>
+      </div>
+      <div class="calc-out">
+        <div class="out-r"><span class="k">Extra monthly revenue · at target</span><span class="v" id="o-rev">A$36,000</span></div>
+        <div class="out-r"><span class="k">Extra monthly net</span><span class="v" id="o-net">A$25,200</span></div>
+        <div class="out-r"><span class="k">6-month cumulative net (ramping)</span><span class="v" id="o-6m">A$88,200</span></div>
+        <div class="out-r"><span class="k">AAA all-in spend (6 months)</span><span class="v" id="o-cost">A$22,500</span></div>
+        <div class="out-r hero"><span class="k">Return on investment</span><span class="v" id="o-roi">3.9×</span></div>
+      </div>
+    </div>
+    <p class="p" style="font-size:12px;margin-top:16px;color:rgba(250,243,224,.75);max-width:none;font-family:var(--mono)">
+      Illustrative, not a guarantee. Real outcome depends on your fee structure, market seasonality, and how fast the content + reviews + podcast compound. Honest expectation: <em>first signs at 6 weeks · reasonable traction at 3 months · real results by Month 6</em>. Buyer's agent lifetime referral value is very high — one delighted client refers 3–5 more over 2 years.
+    </p>
+  </div>
+
+  <div class="cta-row">
+    <button class="pillbtn" data-goto="compliance">See Compliance →</button>
+  </div>
+</section>
+
+<!-- ==================== 06 · COMPLIANCE ==================== -->
+<section class="panel" id="compliance">
+  <div class="eyebrow">§ 06 <span class="dot">❦</span> Compliance &amp; Discipline <span class="dot">❦</span> Non-Negotiable</div>
+  <h1 class="h1">Your name stays <em>clean</em>.<br>Your license stays <span class="under">safe</span>.</h1>
+  <p class="lead">You're a licensed real estate agent operating as a buyer's advocate. Every piece of content, every outbound email, every voice-agent transcript has to sit inside NSW Fair Trading, Spam Act, and (if you touch SMSF specifics) ASIC-adjacent rules. <em>This is the discipline I hold, not you.</em></p>
+
+  <div class="warn-card">
+    <h4>Real estate agent license · NSW Fair Trading</h4>
+    <p>All published content carries a <b>"general information only, not personal financial or property advice"</b> disclaimer. Voice Agent <b>never quotes fees, recommends properties, or confirms deals</b> — captures, qualifies, books, hands off to you. Your NSW real estate agent license number appears in every email footer and site page. Any content touching specific suburbs stays factual, not directional.</p>
+  </div>
+
+  <div class="warn-card r">
+    <h4>ASIC-adjacent · SMSF content care</h4>
+    <p>If content touches SMSF <b>specifics</b> (structuring, LRBA, contribution caps), we frame as <b>"educational information only, seek advice from a licensed SMSF adviser"</b> and never step into personal financial advice territory. Buyer's advocate license covers property; ASIC-regulated advice is a separate license we <em>never claim</em>. Referral partnership with a licensed SMSF adviser is a safer content play — we can build that.</p>
+  </div>
+
+  <div class="warn-card">
+    <h4>Spam Act 2003 · Australian compliance</h4>
+    <p>Every outbound email carries identification, consent basis, working unsubscribe. Warmed email sent only from <b>investologyhq.online</b> — your main <b>info@investology.com.au</b> is never put at risk. Any prospect who opts out is honoured within 24 hours. Penalties for getting this wrong run to <b>six figures a day</b>. We simply never risk it.</p>
+  </div>
+
+  <div class="warn-card g">
+    <h4>Reviews compliance · ACCC guidelines</h4>
+    <p>All reviews harvested are <b>real, verified, unaltered</b>. No incentivised reviews. Testimonial usage follows the client's original consent. Any client featured in a case study signs a written release. Your review reputation is your most valuable asset — we protect it more carefully than any other.</p>
+  </div>
+
+  <div class="warn-card">
+    <h4>NDA · confidentiality · code ownership</h4>
+    <p>Mutual NDA signed on request before any deep work. Client data (leads, calls, matched properties) is <b>highly sensitive</b> — encrypted at rest, access-controlled, GDPR-adjacent hygiene. <b>You own the code, the prompts, the credentials, the trained models, the content, the reviews library, the podcast episodes.</b> No lock-in. Break clause at 3 months.</p>
+  </div>
+
+  <div class="warn-card r">
+    <h4>The refund promise · in writing</h4>
+    <p>The <b>A$4,500 Phase 0 comes with a 100% refundable assurance up to Day 30</b>. No questions. If you don't see enough by Day 30 to continue, I refund the full amount and you keep what's been built. <em>Risk sits with me until value lands in the room.</em></p>
+  </div>
+
+  <div class="cta-row">
+    <button class="pillbtn" data-goto="yes">Yes → Start →</button>
+  </div>
+</section>
+
+<!-- ==================== 07 · YES → START ==================== -->
+<section class="panel" id="yes">
+  <div class="eyebrow">§ 07 <span class="dot">❦</span> Yes → Start <span class="dot">❦</span> Four Things This Week</div>
+  <h1 class="h1">Reply "<em>invest smarter</em>" — Day 1<br>clock starts <span class="under">the same day.</span></h1>
+  <p class="lead">The single step that cannot be compressed later is the email warmup — 2–4 weeks minimum. Every day we delay is a Saturday night where the Voice Agent isn't catching a serious investor call. Here's exactly how we start.</p>
+
+  <h2 class="h2">The immediate <em>next steps</em></h2>
+  <div class="timeline">
+    <div class="tl-item done">
+      <div class="tl-tag">Step 1 · Today or tomorrow</div>
+      <div class="tl-h">Reply "invest smarter" on WhatsApp</div>
+      <div class="tl-p">One line and I lock the Saturday kickoff, prep the Phase 0 invoice, point investologyhq.online DNS, start the warmup clock.</div>
+    </div>
+    <div class="tl-item done">
+      <div class="tl-tag">Step 2 · Phase 0 fee</div>
+      <div class="tl-h">A$4,500 · one-time · Phase 0 kicks off</div>
+      <div class="tl-p">Invoice sent on your "invest smarter". Once paid: tools activated, Saturday session locked, investologyhq.online warmup fires. Fully refundable up to Day 30 — <b>no questions asked</b>.</div>
+    </div>
+    <div class="tl-item done hero">
+      <div class="tl-tag">Step 3 · Saturday · ~90 min · first time</div>
+      <div class="tl-h">Kickoff at your office · or a Sydney café</div>
+      <div class="tl-p">Logins together. The 30–40 min voice capture — you talking psychology, property, wins, war stories. Ideal client sentence locked. Tools activated on your card (~A$80–100/mo passthrough, at cost, no markup).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-tag">Step 4 · Days 1–10</div>
+      <div class="tl-h">I build. You approve.</div>
+      <div class="tl-p">Voice Agent built &amp; tested, reviews harvested, first anchor essay drafted, Findable diagnostic delivered, WhatsApp signoff before anything goes live. Day 10 — Voice Agent live on 0478 502 303, first essay published, reviews starting to work for you.</div>
+    </div>
+  </div>
+
+  <h2 class="h2">Your part · <em>mostly once</em>, then one hour a week</h2>
+  <div class="grid-2">
+    <div class="card forest">
+      <div class="card-tag">Once · at Saturday session</div>
+      <ul class="list forest" style="margin:6px 0 0">
+        <li>Website CMS login · Google · socials access</li>
+        <li>NSW real estate agent license number</li>
+        <li>3–4 client case studies with permission to anonymise</li>
+        <li>Your voice · 30–40 min recording · psychology + property</li>
+        <li>Ideal client sentence · one line</li>
+        <li>The ~A$80–100/mo tools on your card</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-tag">Weekly · the standing rhythm</div>
+      <ul class="list">
+        <li><b>Saturday · ~1 hour</b> — we review numbers, you approve the coming week's content, we tailor the plan</li>
+        <li><b>WhatsApp signoff · 2 min</b> — before Monday. "OK" or mark changes. Nothing publishes without your yes.</li>
+        <li><b>Forward the strays</b> — someone says "I saw your post" → one WhatsApp line, so leads log to source</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="h2">And what you <em>never</em> have to do</h2>
+  <ul class="list">
+    <li>Write a single post, essay, email, newsletter, or podcast intro</li>
+    <li>Learn a single tool interface (Airtable, Cal.com, Buffer — you never open them)</li>
+    <li>Touch the ad platform, the schema, the email warmup, the DNS</li>
+    <li>Be on camera if you don't want to be — video is always optional, audio-only podcast works fine</li>
+  </ul>
+
+  <div class="warn-card r" style="margin-top:32px">
+    <h4>The honest timeline · no surprises</h4>
+    <p><b>Weeks 1–2</b> · the invisible fortnight. Foundation live, Voice Agent + first essay shipping. <b>Weeks 3–6</b> · warmup completes, cadence live, reviews harvested + repurposing. <b>First replies, first inbound leads from AI + Google. Early signs, not scale.</b> <b>Months 2–3</b> · Findable firing, attribution tracking, referral partners nurturing. <b>First real discovery calls booked and stamped to source.</b> <b>Months 3–6</b> · payoff window. Content compounding, podcast possibly live, deal pipeline visible daily. <b>Beyond Month 6</b> · category-of-one authority forming, engine runs while you close deals.</p>
+  </div>
+
+  <div class="cta-row" style="margin-top:36px">
+    <a class="pillbtn rose" href="https://wa.me/61469313323?text=Usha%20here%20from%20Investology%20%E2%80%94%20invest%20smarter.%20Ready%20for%20Phase%200." target="_blank" rel="noopener">WhatsApp: "INVEST SMARTER" →</a>
+    <a class="pillbtn" href="mailto:raj@artigellence.com?subject=Investology%20%C2%B7%20Phase%200%20%C2%B7%20INVEST%20SMARTER&body=Hi%20Raj%2C%0A%0AInvest%20smarter.%20Please%20send%20the%20Phase%200%20invoice%20and%20let's%20lock%20the%20Saturday%20session.%0A%0AUsha%20%C2%B7%20Investology">Email: raj@artigellence.com</a>
+    <a class="pillbtn ghost" href="tel:+61469313323">Call · +61 469 313 323</a>
+  </div>
+
+  <p class="p" style="margin-top:36px;font-family:var(--disp);font-style:italic;font-size:19px;color:var(--body);border-top:1px solid var(--line);padding-top:28px;line-height:1.5">
+    Usha ji — you said "We understand the psychology of investing." Let's build the engine that makes every serious Australian investor <em>find that sentence</em> before they call anyone else. Founder-direct, every step. Look forward to your <em>invest smarter</em>. — <b style="color:var(--rose);font-style:normal;font-family:var(--sans);font-weight:700">Raj</b>
+  </p>
+</section>
+
+</main>
+
+<div class="rule rose" style="margin:0"></div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="l">Investology <em>×</em> AAA by Artigellence</span>
+      <span class="s">Founder-Direct AI · Sydney · Tailored at every meeting</span>
+    </div>
+    <div class="foot-links">
+      <a href="https://investology.com.au" target="_blank">investology.com.au</a>
+      <a href="https://investologyhq.online" target="_blank">investologyhq.online</a>
+      <a href="https://rajsingh.online" target="_blank">rajsingh.online</a>
+      <a href="mailto:raj@artigellence.com">raj@artigellence.com</a>
+      <a href="tel:+61469313323">+61 469 313 323</a>
+    </div>
+  </div>
+  <div class="foot-legal">
+    Prepared for Usha Borah / Investology under mutual NDA. This document is a working prototype and a proposal — not a contract, not personal financial or property advice. All figures are honest estimates, not guarantees. Phase 0 refund clause applies up to Day 30. ABN 83 988 690 362 · Sydney, Australia · © 2026 Artigellence.
+  </div>
+</footer>
+
+<script>
+(function(){
+  const tog=document.getElementById('theme-tog'),ico=document.getElementById('theme-ico'),lbl=document.getElementById('theme-lbl');
+  const root=document.documentElement;
+  const saved=localStorage.getItem('ix-theme');
+  function paint(){const d=root.classList.contains('dark');ico.textContent=d?'☀':'☾';lbl.textContent=d?'LIGHT':'DARK'}
+  if(saved==='dark') root.classList.add('dark');
+  else if(saved==='light') root.classList.remove('dark');
+  paint();
+  tog.addEventListener('click',()=>{root.classList.toggle('dark');try{localStorage.setItem('ix-theme',root.classList.contains('dark')?'dark':'light')}catch(e){}paint()});
+})();
+
+// ROI Calculator
+(function(){
+  const rE=document.getElementById('r-eng'), vE=document.getElementById('v-eng');
+  const rF=document.getElementById('r-fee'), vF=document.getElementById('v-fee');
+  const rM=document.getElementById('r-marg'), vM=document.getElementById('v-marg');
+  const oR=document.getElementById('o-rev'), oN=document.getElementById('o-net'), o6=document.getElementById('o-6m'), oC=document.getElementById('o-cost'), oRoi=document.getElementById('o-roi');
+  if(!rE) return;
+  const fmt=n=>'A$'+Math.round(n).toLocaleString();
+  function recalc(){
+    const e=+rE.value, f=+rF.value, m=+rM.value/100;
+    vE.textContent=e; vF.textContent=fmt(f); vM.textContent=(+rM.value)+'%';
+    const monthlyRev=e*f, monthlyNet=monthlyRev*m;
+    // ramping cumulative over 6 months: linear ramp 1→e
+    const cumRev = f * m * (e/6) * (1+2+3+4+5+6);
+    const cost=22500;
+    const roi=cumRev/cost;
+    oR.textContent=fmt(monthlyRev); oN.textContent=fmt(monthlyNet); o6.textContent=fmt(cumRev); oC.textContent=fmt(cost); oRoi.textContent=roi.toFixed(1)+'×';
+  }
+  [rE,rF,rM].forEach(el=>el.addEventListener('input',recalc));
+  recalc();
+})();
+
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>switchTab(t.dataset.tab));
+});
+document.querySelectorAll('[data-goto]').forEach(b=>{
+  b.addEventListener('click',()=>{switchTab(b.dataset.goto);window.scrollTo({top:0,behavior:'smooth'})});
+});
+function switchTab(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===id));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));
+}
+</script>
+</body>
+</html>
