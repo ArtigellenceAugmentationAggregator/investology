@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>As Discussed · Usha × Raj · Tallawong Meeting → Working Plan</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF3E0;--bg-2:#F5EAC8;--card:#FFFFFF;--card-2:#FBF6E8;
+  --line:#DFD2AC;
+  --forest:#2D5A3D;--forest-2:#1F4230;--forest-3:#173226;--forest-light:#4A7C5A;--forest-soft:rgba(45,90,61,.08);--forest-glow:rgba(45,90,61,.25);
+  --rose:#B76E79;--rose-bright:#D18894;--rose-deep:#7A4048;--rose-soft:rgba(183,110,121,.12);
+  --gold:#B8863C;--gold-deep:#7A5720;--gold-soft:rgba(184,134,60,.14);
+  --alert:#B0361F;--alert-soft:rgba(176,54,31,.08);
+  --ink:#1F1B14;--body:#5A5045;--mute:#8B7E6E;
+  --wa:#25D366;
+  --disp:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none}
+::selection{background:var(--forest);color:#FAF3E0}
+.shape{position:fixed;pointer-events:none;z-index:0;border-radius:50%;filter:blur(4px)}
+.shape.a{top:-140px;right:-120px;width:460px;height:460px;background:radial-gradient(circle,var(--rose) 0%,transparent 65%);opacity:.09}
+.shape.b{bottom:-160px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,var(--forest) 0%,transparent 70%);opacity:.07}
+
+.topnav{background:var(--forest-3);border-bottom:1px solid var(--forest-2);font-family:var(--mono);position:relative;z-index:130}
+.topnav-in{max-width:1080px;margin:0 auto;padding:0 22px;display:flex;gap:2px;align-items:center;overflow-x:auto;scrollbar-width:none}
+.topnav-in::-webkit-scrollbar{display:none}
+.topnav a{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#C9B98E;font-weight:600;padding:10px 13px;white-space:nowrap}
+.topnav a:hover{color:#fff}
+.topnav a.on{color:#fff;border-bottom:2px solid var(--rose)}
+.topnav a.wa{margin-left:auto;color:var(--wa)}
+
+header{background:rgba(250,243,224,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:110}
+.hdr{max-width:1080px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{width:46px;height:46px;background:linear-gradient(135deg,var(--forest),var(--forest-2));border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 5px 16px var(--forest-glow)}
+.mark::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--rose)}
+.mark svg{width:26px;height:28px}
+.brand .nm{font-family:var(--disp);font-size:20px;font-weight:600;color:var(--forest);letter-spacing:-.2px;line-height:1.05}
+.brand .nm em{color:var(--rose);font-style:italic}
+.brand .nm small{display:block;font-family:var(--mono);font-size:8px;color:var(--mute);letter-spacing:1.2px;text-transform:uppercase;font-weight:500;margin-top:3px}
+.priv{font-family:var(--mono);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--rose-deep);background:var(--rose-soft);border:1px solid var(--rose);border-radius:16px;padding:5px 12px;font-weight:600;white-space:nowrap}
+
+main{max-width:1080px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+.hero{padding:48px 0 26px;text-align:center}
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--rose-deep);font-weight:700;background:var(--rose-soft);border:1px solid var(--rose);border-radius:20px;padding:6px 15px;margin-bottom:20px}
+h1{font-family:var(--disp);font-size:clamp(30px,4.8vw,50px);font-weight:600;line-height:1.08;letter-spacing:-.8px;margin-bottom:16px;max-width:840px;margin-left:auto;margin-right:auto}
+h1 em{font-style:italic;color:var(--rose)}
+h1 .u{color:var(--forest);border-bottom:3px solid var(--rose)}
+.sub{font-size:16.5px;color:var(--body);max-width:700px;margin:0 auto;line-height:1.65}
+.sub b{color:var(--ink)}
+.sub em{color:var(--forest);font-style:italic}
+
+.sec{padding:36px 0}
+.sec-k{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--rose-deep);font-weight:600;text-align:center;margin-bottom:12px}
+.sec-k::before{content:'❦ ';color:var(--rose)}
+.sec-h{font-family:var(--disp);font-size:clamp(24px,3.4vw,36px);font-weight:600;letter-spacing:-.5px;text-align:center;line-height:1.12;margin-bottom:12px;max-width:700px;margin-left:auto;margin-right:auto}
+.sec-h em{font-style:italic;color:var(--rose)}
+.sec-sub{font-size:14.5px;color:var(--body);text-align:center;max-width:660px;margin:0 auto 26px;line-height:1.6}
+.sec-sub b{color:var(--ink)}
+
+.saidgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:760px){.saidgrid{grid-template-columns:1fr}}
+.said{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--rose);border-radius:0 12px 12px 0;padding:16px 20px}
+.said .q{font-family:var(--disp);font-style:italic;font-size:16px;color:var(--ink);line-height:1.45;margin-bottom:6px}
+.said .from{font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--mute);font-weight:600}
+.said .from b{color:var(--rose-deep)}
+.said.g{border-left-color:var(--forest)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:24px}
+@media(max-width:820px){.stats{grid-template-columns:1fr 1fr}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 16px;text-align:center}
+.stat.warn{border-color:var(--alert);background:linear-gradient(180deg,var(--alert-soft),var(--card))}
+.stat.good{border-color:var(--forest-light);background:linear-gradient(180deg,var(--forest-soft),var(--card))}
+.stat .big{font-family:var(--disp);font-size:31px;font-weight:600;font-style:italic;color:var(--forest);line-height:1.05}
+.stat.warn .big{color:var(--alert)}
+.stat .lbl{font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--mute);margin-top:7px;font-weight:600;line-height:1.5}
+
+.leak{background:linear-gradient(135deg,var(--forest),var(--forest-2));color:#FAF3E0;border-radius:18px;padding:32px 32px;position:relative;overflow:hidden;border:1px solid var(--rose);max-width:900px;margin:24px auto 0}
+.leak::after{content:'❦';position:absolute;top:6px;right:22px;font-family:var(--disp);font-size:110px;color:var(--rose);opacity:.13;line-height:1}
+.leak .k{font-family:var(--mono);font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--rose-bright);font-weight:600;margin-bottom:10px}
+.leak h3{font-family:var(--disp);font-size:25px;font-weight:600;letter-spacing:-.3px;line-height:1.2;margin-bottom:12px;position:relative}
+.leak h3 em{font-style:italic;color:var(--rose-bright)}
+.leak p{font-size:14.5px;color:#E7DDBE;line-height:1.7;max-width:720px;position:relative;margin-bottom:10px}
+.leak p b{color:#fff}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:780px){.grid-2{grid-template-columns:1fr}}
+.vs{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 22px}
+.vs .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;margin-bottom:9px}
+.vs.you .tag{color:var(--rose-deep)}
+.vs.ai .tag{color:var(--forest)}
+.vs h4{font-family:var(--disp);font-size:19px;font-weight:600;margin-bottom:8px;line-height:1.25}
+.vs h4 em{font-style:italic;color:var(--rose)}
+.vs p{font-size:13.5px;color:var(--body);line-height:1.6}
+.vs p b{color:var(--ink)}
+.vs ul{list-style:none;margin-top:8px}
+.vs li{font-size:13px;color:var(--body);line-height:1.55;padding:4px 0 4px 20px;position:relative}
+.vs li::before{content:'❦';position:absolute;left:0;color:var(--rose);font-size:11px}
+.vs.ai li::before{color:var(--forest)}
+.vs li b{color:var(--ink)}
+
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-top:24px}
+@media(max-width:900px){.flow{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:560px){.flow{grid-template-columns:1fr 1fr}}
+.fstep{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 12px;text-align:center;position:relative}
+.fstep .no{width:26px;height:26px;border-radius:8px;background:var(--rose);color:#fff;font-family:var(--disp);font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
+.fstep.h .no{background:var(--forest)}
+.fstep h5{font-family:var(--disp);font-size:13.5px;font-weight:600;line-height:1.2;margin-bottom:4px}
+.fstep p{font-size:10.5px;color:var(--body);line-height:1.45}
+.fstep .who{font-family:var(--mono);font-size:7.5px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-top:7px;color:var(--forest)}
+.fstep .who.u{color:var(--rose-deep)}
+
+.deal{background:var(--card);border:1.5px solid var(--gold);border-radius:18px;padding:30px 30px;max-width:900px;margin:0 auto;box-shadow:0 12px 40px rgba(184,134,60,.12)}
+.deal .k{font-family:var(--mono);font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+.deal h3{font-family:var(--disp);font-size:26px;font-weight:600;letter-spacing:-.3px;margin-bottom:6px}
+.deal h3 em{font-style:italic;color:var(--rose)}
+.deal .num{font-family:var(--disp);font-size:38px;font-style:italic;font-weight:600;color:var(--forest);margin:8px 0 4px}
+.deal .num small{font-family:var(--mono);font-size:11px;font-style:normal;color:var(--mute);letter-spacing:.5px}
+.deal ul{list-style:none;margin:14px 0}
+.deal li{font-size:14px;color:var(--body);line-height:1.6;padding:5px 0 5px 24px;position:relative}
+.deal li::before{content:'❦';position:absolute;left:0;color:var(--gold);font-size:13px}
+.deal li b{color:var(--ink)}
+.deal .fine{font-family:var(--mono);font-size:9.5px;color:var(--mute);letter-spacing:.3px;border-top:1px solid var(--line);padding-top:12px;margin-top:6px;line-height:1.7}
+
+.note{background:var(--card-2);border:1px solid var(--rose);border-left:4px solid var(--rose);border-radius:0 14px 14px 0;padding:26px 28px;max-width:900px;margin:0 auto}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--rose-deep);font-weight:700;margin-bottom:10px}
+.note p{font-size:14.5px;color:var(--body);line-height:1.75;margin-bottom:10px}
+.note p b{color:var(--ink)}
+.note p em{font-family:var(--disp);font-style:italic;color:var(--rose-deep)}
+
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:15px;font-weight:600;padding:15px 26px;border-radius:11px;cursor:pointer;border:none;transition:all .2s}
+.btn.wa{background:var(--wa);color:#062018;box-shadow:0 8px 22px rgba(37,211,102,.28)}
+.btn.wa:hover{background:#2ee574;transform:translateY(-2px)}
+.btn.rose{background:var(--rose);color:#fff}
+.btn.rose:hover{background:var(--rose-deep);transform:translateY(-2px)}
+
+footer{border-top:1px solid var(--line);background:var(--bg-2);padding:28px 22px;margin-top:36px}
+.ft{max-width:1080px;margin:0 auto;text-align:center}
+.ft .l{font-family:var(--disp);font-size:17px;font-weight:600;color:var(--forest)}
+.ft .l em{color:var(--rose);font-style:italic}
+.ft .legal{font-family:var(--mono);font-size:9px;color:var(--mute);letter-spacing:.3px;line-height:1.7;margin-top:12px;max-width:860px;margin-left:auto;margin-right:auto}
+</style>
+</head>
+<body>
+<div class="shape a"></div><div class="shape b"></div>
+
+<nav class="topnav"><div class="topnav-in">
+  <a href="index.html">❦ Home</a>
+  <a href="proposal.html">The Full Plan</a>
+  <a href="investology_asdiscussed.html" class="on">As Discussed</a>
+  <a href="investology_smsf_deadline.html">10 Aug SMSF</a>
+  <a href="investology_lander_waland.html">WA Land from $275k</a>
+  <a href="https://wa.me/61469313323" target="_blank" rel="noopener" class="wa">WhatsApp Raj →</a>
+</div></nav>
+
+<header><div class="hdr">
+  <div class="brand">
+    <div class="mark"><svg viewBox="0 0 40 44" fill="#FAF3E0" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="16" width="12" height="24" opacity=".95"/><rect x="22" y="8" width="12" height="32"/><rect x="25" y="13" width="2.4" height="2.4" fill="#2D5A3D"/><rect x="28.8" y="13" width="2.4" height="2.4" fill="#B76E79"/><rect x="9" y="20" width="2.4" height="2.4" fill="#2D5A3D"/><rect x="12.8" y="20" width="2.4" height="2.4" fill="#B76E79"/><rect x="4" y="40" width="32" height="2.4" fill="#B76E79"/></svg></div>
+    <div class="nm">Investology <em>×</em> AAA<small>Usha Borah · with Raj Singh · Artigellence</small></div>
+  </div>
+  <span class="priv">Private · for Usha only · July 2026</span>
+</div></header>
+
+<main>
+
+  <section class="hero">
+    <span class="eyebrow">◆ Tallawong · one hour · everything we discussed, written down</span>
+    <h1>Usha — you don't have a <em>lead</em> problem.<br>You have a <span class="u">12-hour-day</span> problem.</h1>
+    <p class="sub">Thank you for the hour. This page is our conversation, played back — <b>your words, your numbers, and the honest plan that follows from them.</b> Nothing here is a template; every line came from what you told me.</p>
+  </section>
+
+  <section class="sec">
+    <div class="sec-k">01 · What you told me</div>
+    <div class="sec-h">Your own words, <em>read back</em></div>
+    <div class="saidgrid">
+      <div class="said"><div class="q">"I'm overworked — 12+ hours a day."</div><div class="from"><b>The core problem</b> · everything else flows from this</div></div>
+      <div class="said"><div class="q">"AI cannot find properties like me — corner block, square, rectangular, the location, the position…"</div><div class="from"><b>Your honest doubt</b> · answered below, respectfully</div></div>
+      <div class="said g"><div class="q">Posted on Facebook Marketplace at 11pm — 25 leads by morning.</div><div class="from"><b>Your superpower</b> · most agents would kill for this</div></div>
+      <div class="said"><div class="q">"Around 10% convert."</div><div class="from"><b>The leak</b> · 9 out of 10 leads walk away — see the maths below</div></div>
+      <div class="said g"><div class="q">A$12,500 per client, as buyer's agent.</div><div class="from"><b>Your engine maths</b> · every saved lead is worth real money</div></div>
+      <div class="said g"><div class="q">43 builders across Australia — deep inventory in Queensland &amp; Perth.</div><div class="from"><b>Your hidden asset</b> · nobody can see it, including your leads</div></div>
+      <div class="said"><div class="q">"I get a lead, I have to dig, find properties, roll out the offer, then deposit, then…"</div><div class="from"><b>The grind</b> · every step manual, every step on you</div></div>
+      <div class="said g"><div class="q">"I can collaborate — but I don't want you working for free. Find the in-between way."</div><div class="from"><b>Agreed</b> · the in-between way is below, exactly as you asked</div></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat good"><div class="big">25</div><div class="lbl">Leads overnight from ONE 11pm Facebook post</div></div>
+      <div class="stat warn"><div class="big">~22</div><div class="lbl">Of those 25 lost — at ~10% conversion</div></div>
+      <div class="stat good"><div class="big">A$12,500</div><div class="lbl">Value of every single saved client</div></div>
+      <div class="stat warn"><div class="big">12+ hrs</div><div class="lbl">Your day — doing steps a system should do</div></div>
+    </div>
+
+    <div class="leak">
+      <div class="k">❦ The honest maths</div>
+      <h3>Your leads aren't the problem. <em>The leak is.</em></h3>
+      <p>One post brings 25 leads while you sleep — that is genuinely rare, and it's yours. But at ~10% conversion, <b>about 22 of those 25 people never become clients</b>. Not because they weren't real — because there's one Usha, and 25 conversations, and properties to dig, and offers to roll out, and a 12-hour day already full.</p>
+      <p><b>Rescue just 2 extra clients a month from that leak and it's +A$25,000/month</b> — from leads you already generated, at zero extra marketing cost. That's the entire engine, in one sentence.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-k">02 · About "AI can't find properties like me"</div>
+    <div class="sec-h">You're right. <em>And that's exactly the point.</em></div>
+    <p class="sec-sub">You said AI can't judge a corner block, the shape, the position, the feel. <b>Correct — and it never should.</b> Here's the split we discussed:</p>
+    <div class="grid-2">
+      <div class="vs you">
+        <div class="tag">The 10–30% only YOU can do</div>
+        <h4>Your eye. Your judgment. <em>Untouchable.</em></h4>
+        <p>The final call on a lot — corner vs internal, orientation, street position, "this one, not that one" — stays 100% yours. That judgment is <b>why clients pay A$12,500</b>. No AI replaces it, and this plan never tries to.</p>
+      </div>
+      <div class="vs ai">
+        <div class="tag">The 70–90% the engine takes off you</div>
+        <h4>The digging, chasing &amp; typing — <em>automated.</em></h4>
+        <ul>
+          <li><b>Answering 25 overnight leads</b> in seconds, not days — qualified while you sleep</li>
+          <li><b>Matching briefs to your 43-builder inventory</b> — lot size, shape, orientation, frontage, budget, state — shortlist ready for YOUR eye</li>
+          <li><b>Rolling out the offer pack</b> — drafted, branded, sent — you approve, not type</li>
+          <li><b>Chasing follow-ups &amp; deposit steps</b> — the system never forgets, never sleeps</li>
+        </ul>
+        <p style="margin-top:8px">With full context and a few iterations — <b>70–90% automated, your judgment on the rest.</b> Exactly what I said at the table.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:26px">
+      <div class="sec-k">How one lead flows through the engine</div>
+      <div class="flow">
+        <div class="fstep"><span class="no">1</span><h5>FB lead lands</h5><p>11pm post, 25 enquiries</p><div class="who">Engine</div></div>
+        <div class="fstep"><span class="no">2</span><h5>Instant reply</h5><p>Under 60 seconds, every time</p><div class="who">Engine</div></div>
+        <div class="fstep"><span class="no">3</span><h5>Qualified</h5><p>Budget · product · SMSF-cash vs H&amp;L vs land</p><div class="who">Engine</div></div>
+        <div class="fstep"><span class="no">4</span><h5>Matched</h5><p>Shortlist from your 43-builder stock</p><div class="who">Engine</div></div>
+        <div class="fstep h"><span class="no">5</span><h5>Your eye</h5><p>Corner? Position? The call is yours</p><div class="who u">Usha</div></div>
+        <div class="fstep h"><span class="no">6</span><h5>You close</h5><p>Offer → deposit → A$12,500</p><div class="who u">Usha</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-k">03 · Your three products, one engine</div>
+    <div class="sec-h">SMSF now. <em>House &amp; land forever.</em></div>
+    <p class="sec-sub"><b>SMSF</b> ends as a borrowing product on 10 August — the engine is already live for that surge (<a href="investology_smsf_deadline.html" style="color:var(--rose-deep);font-weight:600;text-decoration:underline">the deadline page</a>). But your real long game is <b>house &amp; land + land-only from your QLD &amp; Perth inventory</b> — that's where the 43 builders become a machine no other buyer's agent has. The <a href="investology_lander_waland.html" style="color:var(--rose-deep);font-weight:600;text-decoration:underline">WA land page</a> is the first taste; QLD comes next.</p>
+  </section>
+
+  <section class="sec">
+    <div class="sec-k">04 · The in-between way — exactly as you asked</div>
+    <div class="sec-h">Not free. Not big-ticket. <em>Fair.</em></div>
+    <div class="deal">
+      <div class="k">◆ The collaboration · same structure my current paying clients are on</div>
+      <h3>Six months. <em>Everything above, built and run.</em></h3>
+      <div class="num">A$8,000 <small>· OVER 6 MONTHS · A$3,000 TO START + A$1,000/MONTH</small></div>
+      <ul>
+        <li><b>Review every 2 weeks</b> — we sit down, look at the shared numbers, and adjust. You asked for this; it's in.</li>
+        <li><b>100% results guarantee</b> — if the engine produces no results, every dollar is refundable. All analytics and tracking shared openly, so we judge from the same numbers.</li>
+        <li><b>Everything is yours</b> — pages, chatbot, follow-up system, the inventory-matching engine. No lock-in.</li>
+        <li><b>Weekly PDF report</b> — what shipped, what the numbers say, what's next. Meeting only when needed — I know your hours.</li>
+        <li><b>One rescued client pays for the entire 6 months — one and a half times over.</b> (A$12,500 vs A$8,000.)</li>
+      </ul>
+      <div class="fine">Tailored at every review as we grow · not financial advice · all client-facing content carries your compliance disclaimers, as on every page I've built you.</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-k">05 · A note from Raj — said with respect</div>
+    <div class="sec-h">The straight talk, <em>because I'm on your side</em></div>
+    <div class="note">
+      <div class="k">❦ Usha — honestly, from one hard worker to another</div>
+      <p>I got the feeling you haven't yet had a chance to properly read what I've shared with you. I understand — 12-hour days don't leave room. But here's the truth, said kindly: <b>unless you take out a little time to analyse, introspect and put your information in, I — or anyone — cannot help you.</b></p>
+      <p>I sent you the intake form on <b>Friday</b>. It needs <b>5–10 minutes</b>. Four days have passed — and if those 10 minutes had happened, <em>you would be looking at a real working prototype today,</em> built on your actual answers, instead of this page.</p>
+      <p>Everyone is busy, Usha. This page alone took me 2–3 hours of my own time — because I think your business deserves it. The rest I don't need to explain — <b>you are smart and knowledgeable, and you already know everything written here.</b> The only question is the 10 minutes.</p>
+    </div>
+    <div class="cta-row">
+      <a class="btn wa" href="https://wa.me/61469313323?text=Raj%20%E2%80%94%20ok.%20Send%20me%20the%20intake%20form%20again%2C%20I%27ll%20do%20it%20today." target="_blank" rel="noopener">✓ Send me the intake — I'll do it today</a>
+      <a class="btn rose" href="https://wa.me/61469313323?text=Raj%20%E2%80%94%20let%27s%20start%20the%206-month%20engine.%20INVEST%20SMARTER." target="_blank" rel="noopener">Start the 6-month engine →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer><div class="ft">
+  <div class="l">Investology <em>×</em> AAA by Artigellence</div>
+  <div class="legal"><b>Private discussion page — prepared for Usha Borah only, not for circulation.</b> A written record of an in-person conversation and a proposal — not a contract until agreed and signed. Figures quoted (leads, conversion, fees) are as stated by Usha at the meeting; engine projections are indicative only and depend on iteration and market response. Investology remains a buyer's advocacy service — all client-facing material carries general-information disclaimers and refers SMSF/finance decisions to licensed advisers. Raj Singh · AAA by Artigellence · ABN 83 988 690 362 · raj@artigellence.com · +61 469 313 323.</div>
+</div></footer>
+
+</body>
+</html>
