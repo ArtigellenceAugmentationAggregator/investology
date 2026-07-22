@@ -285,6 +285,26 @@ footer{border-top:1px solid var(--line);background:var(--card-2);padding:40px 24
 .cw-foot a{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#062018;font-weight:700;font-size:12.5px;padding:11px;border-radius:10px}
 .cw-foot a svg{width:17px;height:17px}
 .cw-note{font-family:var(--mono);font-size:8px;color:var(--mute);text-align:center;padding:7px 10px 9px;background:var(--card);letter-spacing:.3px}
+
+/* ==== dark mode ==== */
+html.dark{
+  --bg:#171310;--bg-2:#201A13;--bg-3:#2A2318;--card:#221C14;--card-2:#2A2318;
+  --line:#3D3524;--line-soft:#332C1E;
+  --forest:#7FB08D;--forest-2:#3E6B4E;--forest-3:#10201A;--forest-light:#8FBF9D;--forest-soft:rgba(127,176,141,.12);--forest-glow:rgba(0,0,0,.45);
+  --rose:#D18894;--rose-bright:#E0A2AC;--rose-deep:#E7B6BD;--rose-soft:rgba(209,136,148,.14);
+  --gold:#D9A959;--gold-deep:#E5C284;--gold-soft:rgba(217,169,89,.14);
+  --alert:#E06A50;--alert-soft:rgba(224,106,80,.12);
+  --ink:#F2EBD9;--body:#CFC5AE;--mute:#9A8F7B;
+  background:#171310;color:#F2EBD9;
+}
+html.dark body{background:#171310;color:#F2EBD9}
+html.dark header{background:rgba(23,19,16,.93);border-bottom-color:#3D3524}
+html.dark .brand .nm{color:#8FBF9D}
+html.dark .cw-body .b.bot{background:#2A2318;color:#F2EBD9;border-color:#3D3524}
+html.dark .mark{box-shadow:0 5px 16px rgba(0,0,0,.5)}
+html.dark ::selection{background:#D18894;color:#171310}
+.theme-tog{position:fixed;bottom:22px;left:22px;z-index:300;display:inline-flex;align-items:center;gap:6px;padding:9px 15px;background:linear-gradient(135deg,#2D5A3D,#B76E79);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;border:none;border-radius:20px;cursor:pointer;box-shadow:0 6px 18px rgba(31,27,20,.3);transition:transform .2s}
+.theme-tog:hover{transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -645,6 +665,13 @@ function addBub(t,who){const b=document.getElementById('cwBody');const d=documen
 function renderQr(list){const q=document.getElementById('cwQr');q.innerHTML='';(list||[]).forEach(t=>{const btn=document.createElement('button');btn.textContent=t.replace(/&amp;/g,'&');btn.onclick=()=>pick(t);q.appendChild(btn)})}
 function pick(key){addBub(key.replace(/&amp;/g,'&'),'usr');document.getElementById('cwQr').innerHTML='';const node=FLOW[key];setTimeout(()=>{if(node&&node.bot){addBub(node.bot,'bot');renderQr(node.qr)}else{addBub("Let's take it to WhatsApp so Usha can help properly 👇",'bot')}},420)}
 document.querySelectorAll('[data-copy]').forEach(el=>{el.addEventListener('click',()=>{const t=el.getAttribute('data-copy');navigator.clipboard&&navigator.clipboard.writeText(t);const o=el.textContent;el.textContent='copied ✓';setTimeout(()=>el.textContent=o,1400)})});
+</script>
+<button class="theme-tog" id="theme-tog" title="Light / dark"><span id="theme-ico">◐</span><span id="theme-lbl">DARK</span></button>
+<script>
+(function(){var tog=document.getElementById('theme-tog'),ico=document.getElementById('theme-ico'),lbl=document.getElementById('theme-lbl'),root=document.documentElement;var saved=null;try{saved=localStorage.getItem('inv-theme')}catch(e){}
+function paint(){var d=root.classList.contains('dark');ico.textContent=d?'☀':'◐';lbl.textContent=d?'LIGHT':'DARK'}
+if(saved==='dark')root.classList.add('dark');else if(saved==='light')root.classList.remove('dark');paint();
+tog.addEventListener('click',function(){root.classList.toggle('dark');try{localStorage.setItem('inv-theme',root.classList.contains('dark')?'dark':'light')}catch(e){}paint()});})();
 </script>
 </body>
 </html>

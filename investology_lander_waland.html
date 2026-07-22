@@ -157,6 +157,53 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);padding:30px 22px
 .fab:hover{transform:scale(1.06)}
 .fab svg{width:29px;height:29px}
 .fab .pin{position:absolute;top:-3px;right:-3px;width:19px;height:19px;border-radius:50%;background:var(--rose);color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+
+.fab{position:fixed;bottom:22px;right:22px;z-index:300;width:60px;height:60px;border-radius:50%;background:var(--wa);box-shadow:0 8px 24px rgba(37,211,102,.4);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s;border:none}
+.fab:hover{transform:scale(1.06)}
+.fab svg{width:30px;height:30px}
+.fab .dot{position:absolute;top:-3px;right:-3px;width:20px;height:20px;border-radius:50%;background:var(--rose);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+.chatwin{position:fixed;bottom:94px;right:22px;z-index:300;width:340px;max-width:calc(100vw - 44px);background:var(--card);border-radius:18px;box-shadow:0 20px 60px rgba(31,27,20,.3);border:1px solid var(--line);overflow:hidden;display:none;flex-direction:column}
+.chatwin.open{display:flex;animation:slideup .3s ease}
+@keyframes slideup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.cw-head{background:linear-gradient(135deg,var(--forest),var(--forest-2));padding:15px 18px;display:flex;align-items:center;gap:11px;color:#fff}
+.cw-head .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;font-family:var(--disp)}
+.cw-head .nm{font-size:14px;font-weight:700;flex:1}
+.cw-head .nm small{display:block;font-family:var(--mono);font-size:8.5px;color:#9FE3C4;font-weight:400;margin-top:2px}
+.cw-head .nm small::before{content:'●';color:var(--wa);margin-right:4px}
+.cw-head .x{background:rgba(255,255,255,.14);border:none;color:#fff;width:26px;height:26px;border-radius:7px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center}
+.cw-body{padding:16px;background:var(--bg-2);flex:1;max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:9px}
+.cw-body .b{max-width:84%;padding:9px 13px;border-radius:13px;font-size:12.5px;line-height:1.45}
+.cw-body .b.bot{background:#fff;color:var(--ink);border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.cw-body .b.bot b{color:var(--rose-deep)}
+.cw-body .b.usr{background:var(--forest);color:#FAF3E0;border-bottom-right-radius:4px;align-self:flex-end;font-weight:500}
+.cw-qr{padding:10px 14px;display:flex;gap:7px;flex-wrap:wrap;background:var(--bg-2);border-top:1px solid var(--line-soft)}
+.cw-qr button{font-size:11px;background:var(--rose-soft);border:1px solid var(--rose);color:var(--rose-deep);border-radius:15px;padding:6px 11px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:all .15s}
+.cw-qr button:hover{background:var(--rose);color:#fff}
+.cw-foot{padding:11px 14px;border-top:1px solid var(--line);background:var(--card)}
+.cw-foot a{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#062018;font-weight:700;font-size:12.5px;padding:11px;border-radius:10px}
+.cw-foot a svg{width:17px;height:17px}
+.cw-note{font-family:var(--mono);font-size:8px;color:var(--mute);text-align:center;padding:7px 10px 9px;background:var(--card);letter-spacing:.3px}
+
+
+/* ==== dark mode ==== */
+html.dark{
+  --bg:#171310;--bg-2:#201A13;--bg-3:#2A2318;--card:#221C14;--card-2:#2A2318;
+  --line:#3D3524;--line-soft:#332C1E;
+  --forest:#7FB08D;--forest-2:#3E6B4E;--forest-3:#10201A;--forest-light:#8FBF9D;--forest-soft:rgba(127,176,141,.12);--forest-glow:rgba(0,0,0,.45);
+  --rose:#D18894;--rose-bright:#E0A2AC;--rose-deep:#E7B6BD;--rose-soft:rgba(209,136,148,.14);
+  --gold:#D9A959;--gold-deep:#E5C284;--gold-soft:rgba(217,169,89,.14);
+  --alert:#E06A50;--alert-soft:rgba(224,106,80,.12);
+  --ink:#F2EBD9;--body:#CFC5AE;--mute:#9A8F7B;
+  background:#171310;color:#F2EBD9;
+}
+html.dark body{background:#171310;color:#F2EBD9}
+html.dark header{background:rgba(23,19,16,.93);border-bottom-color:#3D3524}
+html.dark .brand .nm{color:#8FBF9D}
+html.dark .cw-body .b.bot{background:#2A2318;color:#F2EBD9;border-color:#3D3524}
+html.dark .mark{box-shadow:0 5px 16px rgba(0,0,0,.5)}
+html.dark ::selection{background:#D18894;color:#171310}
+.theme-tog{position:fixed;bottom:22px;left:22px;z-index:300;display:inline-flex;align-items:center;gap:6px;padding:9px 15px;background:linear-gradient(135deg,#2D5A3D,#B76E79);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;border:none;border-radius:20px;cursor:pointer;box-shadow:0 6px 18px rgba(31,27,20,.3);transition:transform .2s}
+.theme-tog:hover{transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -276,7 +323,6 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);padding:30px 22px
   <div class="legal"><b>General information only.</b> Investology (Usha Borah) provides buyer's advocacy services. Lot prices, sizes and availability are indicative, set by the developer, and subject to change without notice. Nothing on this page is financial, credit, tax or superannuation advice — obtain advice from licensed professionals before any purchase decision, especially for SMSF structures. Sample testimonials shown for layout — replaced with verified client reviews.<br>Usha Borah · 0478 502 303 · info@investology.com.au · investology.com.au</div>
 </div></footer>
 
-<a class="fab" href="https://wa.me/61478502303?text=Hi%20Usha%20-%20I%27m%20interested%20in%20the%20WA%20land%20release." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="#062018"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5-.1-.2-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3 1 2.6 1.1 2.7.1.2 1.9 3 4.6 4.1.6.3 1.1.5 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg><span class="pin">1</span></a>
 
 <script>
 function sendWA(e){
@@ -288,6 +334,55 @@ function sendWA(e){
     "%0A%0APlease send me the current lot list.";
   window.open("https://wa.me/61478502303?text="+msg,"_blank");return false;
 }
+</script>
+
+
+<button class="fab" id="fab" onclick="toggleChat()" aria-label="Open chat">
+  <svg viewBox="0 0 24 24" fill="#062018"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5-.1-.2-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3 1 2.6 1.1 2.7.1.2 1.9 3 4.6 4.1.6.3 1.1.5 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
+  <span class="dot">1</span>
+</button>
+
+<div class="chatwin" id="chatwin">
+  <div class="cw-head"><div class="av">In</div><div class="nm">Investology<small>online · replies instantly</small></div><button class="x" onclick="toggleChat()">✕</button></div>
+  <div class="cw-body" id="cwBody"><div class="b bot">Hello 🌿 Investology here — Usha's team. What brings you in today?</div></div>
+  <div class="cw-qr" id="cwQr"></div>
+  <div class="cw-foot"><a href="https://wa.me/61478502303?text=Hi%20Usha%20-%20I%27d%20like%20to%20talk%20about%20buying%20property." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#062018"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5-.1-.2-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3 1 2.6 1.1 2.7.1.2 1.9 3 4.6 4.1.6.3 1.1.5 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg> Continue on WhatsApp →</a></div>
+  <div class="cw-note">Demo bot · general info only, not financial advice · production wires to CRM + WhatsApp Business API</div>
+
+<script>
+const FLOW={
+ start:{qr:["SMSF before 10 Aug","WA land from $275k","General property help"]},
+ "SMSF before 10 Aug":{bot:"The big one ⏳ To borrow in your SMSF for residential, the contract must be <b>exchanged before 10 Aug</b>. Is your fund already set up?",qr:["Fund ready","Setting it up","No fund yet"]},
+ "WA land from $275k":{bot:"Great timing 🏞️ Lots from $275k, sizes from 375 sqm. Are you thinking investment or future home?",qr:["Investment","Future home","Just exploring"]},
+ "General property help":{bot:"Welcome 🌿 Usha finds, analyses &amp; negotiates — on the buyer's side only. What's the goal?",qr:["First home","Investment property","Portfolio growth"]},
+ "Fund ready":{bot:"Good position. Has finance started with a broker?",qr:["Finance started","Not yet"]},
+ "Setting it up":{bot:"Tight but sometimes workable — your adviser drives that part. <b>Usha can pre-source property in parallel.</b> Want a call?",qr:["Book a call"]},
+ "No fund yet":{bot:"Honestly — the window is very tight for a new fund. But there are other paths (cash, commercial, buying outside super). <b>Worth a quick chat.</b>",qr:["Book a call"]},
+ "Finance started":{bot:"Then it's a property race 🏁 <b>Booking you with Usha today</b> — she'll give you a straight yes/no on your timeline. Best number? 📞",qr:["Book a call"]},
+ "Not yet":{bot:"That's the bottleneck — lenders are slow right now. Start the broker TODAY. Meanwhile <b>Usha can shortlist property</b> so no time is lost.",qr:["Book a call"]},
+ "Investment":{bot:"Solid — low entry, growth corridors. <b>Usha sends the current lot list on WhatsApp</b> with honest numbers. Ready?",qr:["Get the lot list"]},
+ "Future home":{bot:"Lovely 🏡 From 375 sqm there's room to build well. <b>Usha can match lots to your builder plans.</b>",qr:["Get the lot list"]},
+ "Just exploring":{bot:"Smart to look early — the good lots go first. Grab the list, no pressure:",qr:["Get the lot list"]},
+ "First home":{bot:"The best money you'll spend is on someone who's on YOUR side of the table. <b>First chat is free.</b>",qr:["Book a call"]},
+ "Investment property":{bot:"Usha's specialty — psychology first, suburb second. <b>Let's map your strategy.</b>",qr:["Book a call"]},
+ "Portfolio growth":{bot:"Off-market is where portfolios accelerate. <b>Usha will walk you through her process.</b>",qr:["Book a call"]},
+ "Book a call":{bot:"🙌 Quickest is WhatsApp — Usha will confirm a time personally. Tap below 👇 <br><small style='opacity:.7'>(General info only — your licensed adviser confirms any SMSF matters.)</small>",end:true},
+ "Get the lot list":{bot:"🙌 Tap below and the lot list comes straight back on WhatsApp 👇",end:true}
+};
+let started=false;
+function toggleChat(){const w=document.getElementById('chatwin');w.classList.toggle('open');if(w.classList.contains('open')&&!started){started=true;renderQr(FLOW.start.qr)}document.querySelector('.fab .dot').style.display=w.classList.contains('open')?'none':'flex'}
+function openChat(){const w=document.getElementById('chatwin');if(!w.classList.contains('open'))toggleChat()}
+function addBub(t,who){const b=document.getElementById('cwBody');const d=document.createElement('div');d.className='b '+who;d.innerHTML=t;b.appendChild(d);b.scrollTop=b.scrollHeight}
+function renderQr(list){const q=document.getElementById('cwQr');q.innerHTML='';(list||[]).forEach(t=>{const btn=document.createElement('button');btn.textContent=t.replace(/&amp;/g,'&');btn.onclick=()=>pick(t);q.appendChild(btn)})}
+function pick(key){addBub(key.replace(/&amp;/g,'&'),'usr');document.getElementById('cwQr').innerHTML='';const node=FLOW[key];setTimeout(()=>{if(node&&node.bot){addBub(node.bot,'bot');renderQr(node.qr)}else{addBub("Let's take it to WhatsApp so Usha can help properly 👇",'bot')}},420)}
+document.querySelectorAll('[data-copy]').forEach(el=>{el.addEventListener('click',()=>{const t=el.getAttribute('data-copy');navigator.clipboard&&navigator.clipboard.writeText(t);const o=el.textContent;el.textContent='copied ✓';setTimeout(()=>el.textContent=o,1400)})});
+</script>
+<button class="theme-tog" id="theme-tog" title="Light / dark"><span id="theme-ico">◐</span><span id="theme-lbl">DARK</span></button>
+<script>
+(function(){var tog=document.getElementById('theme-tog'),ico=document.getElementById('theme-ico'),lbl=document.getElementById('theme-lbl'),root=document.documentElement;var saved=null;try{saved=localStorage.getItem('inv-theme')}catch(e){}
+function paint(){var d=root.classList.contains('dark');ico.textContent=d?'☀':'◐';lbl.textContent=d?'LIGHT':'DARK'}
+if(saved==='dark')root.classList.add('dark');else if(saved==='light')root.classList.remove('dark');paint();
+tog.addEventListener('click',function(){root.classList.toggle('dark');try{localStorage.setItem('inv-theme',root.classList.contains('dark')?'dark':'light')}catch(e){}paint()});})();
 </script>
 </body>
 </html>
